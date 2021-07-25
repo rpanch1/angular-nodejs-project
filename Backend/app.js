@@ -12,6 +12,11 @@ var mongoose = require('mongoose');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var profileRouter = require('./routes/profile');
+var productsRouter = require('./routes/products');
+var adminRouter = require('./routes/admin');
+var checkoutRouter = require('./routes/checkout');
+var ordersRouter = require('./routes/orders');
+
 
 // cors authentication
 var corsOptions = {
@@ -35,5 +40,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/profile', profileRouter);
+app.use('/api/v1/products', productsRouter);
+app.use('/api/v1/admin', adminRouter);
+app.use('/api/v1/checkout', checkoutRouter);
+app.use('/api/v1/orders', ordersRouter);
 
 module.exports = app;

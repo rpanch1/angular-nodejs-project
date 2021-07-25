@@ -33,8 +33,7 @@ router.post('/register', async (req, res) => {
 router.post('/login', (req, res) => {
 
   // Authenticate user email and password
-  User.findOne({ email: req.body.email })
-  .then(user => {
+  User.findOne({ email: req.body.email }, (err, user) => {
     if(user === null) { 
       res.status(400).json({"message": "invalid email"});
 
