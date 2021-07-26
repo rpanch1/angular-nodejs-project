@@ -25,4 +25,8 @@ export class UserService {
   loginUser(user: any): Observable<any> {
     return this._http.post(`${this.basicUrl}/users/login`, user, httpOptions);
   }
+
+  getProfile(): Observable<any> {
+    return this._http.post(`${this.basicUrl}/profile`, {}, httpOptions);
+  }
 }
