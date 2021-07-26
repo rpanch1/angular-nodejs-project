@@ -7,10 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>24x7</title>
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!------ Include the above in your HEAD tag ---------->
+    ---- Include the above in your HEAD tag -------- -->
 </head>
 
 <body>
@@ -21,12 +21,9 @@
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-img">
-                        <img src={{user.image}}
-                            alt="" />
-                        <br><br>
-                        <button class="btn btn-outline-danger btn-sm" style="margin-right: 5px;">Delete Image</button>
-                        <button class="btn btn-outline-success btn-sm">Upload Image</button>
+                        <img src={{user.image}} data-testid="profile-image" alt="" />
                     </div>
+                    
                 </div>
                 <div class="col-md-6">
                     <div class="profile-head">
@@ -34,106 +31,121 @@
                             {{user.firstname}} {{user.lastname}}
                         </h5>
                         <hr>
-                        <div class="tab-content profile-tab" id="myTabContent">
-                            <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Name</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{user.firstname}} {{user.lastname}}</p>
-                                    </div>
+                        <div class="tab-content profile-tab">
+                            <div class="row profile-tab-row">
+                                <div class="col-md-6">
+                                    <label>First Name</label>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Email</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{user.email}}</p>
-                                    </div>
+                                <div class="col-md-6">
+                                    <span data-testid="profile-first-name">{{user.firstname}}</span>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Phone</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{user.phone}}</p>
-                                    </div>
+                            </div>
+                            <div class="row profile-tab-row">
+                                <div class="col-md-6">
+                                    <label>Last Name</label>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Interests</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{user.interests}}</p>
-                                    </div>
+                                <div class="col-md-6">
+                                    <span data-testid="profile-last-name">{{user.lastname}}</span>
                                 </div>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <label>Address</label>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <p>{{user.address}}</p>
-                                    </div>
-                                    
+                            </div>
+                            <div class="row profile-tab-row">
+                                <div class="col-md-6">
+                                    <label>Email</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <span data-testid="profile-email-name">{{user.email}}</span>
+                                </div>
+                            </div>
+                            <div class="row profile-tab-row">
+                                <div class="col-md-6">
+                                    <label>Phone</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <span>{{user.phone}}</span>
+                                </div>
+                            </div>
+                            <div class="row profile-tab-row">
+                                <div class="col-md-6">
+                                    <label>Interests</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <span>{{user.interests}}</span>
+                                </div>
+                            </div>
+                            <div class="row profile-tab-row">
+                                <div class="col-md-6">
+                                    <label>Address</label>
+                                </div>
+                                <div class="col-md-6">
+                                    <span>{{user.address}}</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" />
+                    <!-- <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile" /> -->
                 </div>
             </div>
             <!-- Second row under photo and info -->
             <div class="row">
                 <div class="col-md-4">
                     <div class="profile-work">
-                        
+                        <div class="profile-img">
+                            <button class="btn btn-outline-danger btn-sm" data-testid="profile-delete-button"
+                                style="margin-right: 5px;" (click)="deleteImage()">Delete Image</button>
+                            <button class="btn btn-outline-success btn-sm" data-testid="profile-upload-button"
+                                (click)="uploadImage()">Upload Image</button>
+                        </div>
                     </div>
                 </div>
                 <div class="col-md-8">
-                    <button *ngIf="!showEdit" class="btn btn-primary" (click)="isEdit()">Edit Address</button>
+                    <div class="profile-work">
+                        <button *ngIf="!showEdit" class="btn btn-primary" data-testid="address-edit-button"
+                        (click)="isEdit()">Edit Address</button>
+                    </div>
+                    <!-- Edit Address Form  -->
                     <div *ngIf='showEdit'>
                         <form #addressForm='ngForm' (ngSubmit)='saveAddress()'>
                             <hr>
                             <h5>New Address</h5>
                             <div class='form-group mb-3'>
                                 <label for="street">Street Address</label>
-                                <input type='text' class='form-control' placeholder='Street Address' [(ngModel)]='newAddress.street'
-                                        name='street' #street='ngModel'
-                                        [ngClass]="{'is-invalid': street.touched && street.invalid}" required>
-                    
+                                <input type='text' class='form-control' placeholder='Street Address'
+                                    [(ngModel)]='newAddress.street' name='street' #street='ngModel'
+                                    [ngClass]="{'is-invalid': street.touched && street.invalid}" required>
+
                                 <div *ngIf='street.touched && street.invalid' class='invalid-feedback'>
                                     <div *ngIf='street.errors!.required'>Street is required</div>
                                 </div>
                                 <label for="city">City</label>
                                 <input type='text' class='form-control' placeholder='City' [(ngModel)]='newAddress.city'
-                                        name='city' #city='ngModel'
-                                        [ngClass]="{'is-invalid': city.touched && city.invalid}" required>
-                    
+                                    name='city' #city='ngModel' [ngClass]="{'is-invalid': city.touched && city.invalid}"
+                                    required>
+
                                 <div *ngIf='city.touched && city.invalid' class='invalid-feedback'>
                                     <div *ngIf='city.errors!.required'>City is required</div>
                                 </div>
                                 <label for="state">State</label>
-                                <input type='text' class='form-control' placeholder='State' [(ngModel)]='newAddress.state'
-                                        name='state' #state='ngModel'
-                                        [ngClass]="{'is-invalid': state.touched && state.invalid}" required>
-                    
+                                <input type='text' class='form-control' placeholder='State'
+                                    [(ngModel)]='newAddress.state' name='state' #state='ngModel'
+                                    [ngClass]="{'is-invalid': state.touched && state.invalid}" required>
+
                                 <div *ngIf='state.touched && state.invalid' class='invalid-feedback'>
                                     <div *ngIf='state.errors!.required'>State is required</div>
                                 </div>
                                 <label for="zip">Zip Code</label>
-                                <input type='text' class='form-control' placeholder='Zip Code' [(ngModel)]='newAddress.zip'
-                                        name='zip' #zip='ngModel'
-                                        [ngClass]="{'is-invalid': zip.touched && zip.invalid}" required>
-                    
+                                <input type='text' class='form-control' placeholder='Zip Code'
+                                    [(ngModel)]='newAddress.zip' name='zip' #zip='ngModel'
+                                    [ngClass]="{'is-invalid': zip.touched && zip.invalid}" required>
+
                                 <div *ngIf='zip.touched && zip.invalid' class='invalid-feedback'>
                                     <div *ngIf='zip.errors!.required'>Zip Code is required</div>
                                 </div>
-                                
+
                             </div>
-                            <button type="submit" class="btn btn-primary" [disabled]='addressForm.form.invalid'>Save</button> | 
+                            <button type="submit" class="btn btn-primary"
+                                [disabled]='addressForm.form.invalid'>Save</button> |
                             <button class="btn btn-danger" (click)="isEdit()">Cancel</button>
                         </form>
                     </div>

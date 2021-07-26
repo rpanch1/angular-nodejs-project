@@ -51,4 +51,17 @@ export class ProfileComponent implements OnInit {
     //   console.log(addrString);  
   }
 
+  // Upload image for user
+  uploadImage() {
+    console.log("updating user image");
+    // Do we need to implement this?
+  }
+
+  // Delete image for user and instate default
+  deleteImage() {
+    this.user.image = "https://www.personality-insights.com/wp-content/uploads/2017/12/default-profile-pic-e1513291410505.jpg";
+    // Save updated user 
+    console.log("Delete user image and return to default")
+  }
+
 }
