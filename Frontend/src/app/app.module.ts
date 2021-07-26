@@ -12,6 +12,7 @@ import { UserService } from './services/user.service';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     RegisterComponent,
     LoginComponent,
     HomepageComponent,
-    NavbarComponent
+    NavbarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
