@@ -22,8 +22,14 @@ export class LoginComponent implements OnInit {
 
   onSubmit(){
     this._userService.loginUser(this.user).subscribe((response) => {
-      localStorage.setItem('token', response.accessToken);
-      this._router.navigate(['home']);
+
+      this._userService.getUserRole(response.accessToken).subscribe((res) => {
+        localStorage.setItem('token', response.accessToken + ' ' + res.profile.role);
+        console.log(localStorage.getItem('token'));
+        this._router.navigate(['home']);
+
+      }, (error) => console.log(error));
+
     }, (err) => {
       alert(err.error.message);
     })
