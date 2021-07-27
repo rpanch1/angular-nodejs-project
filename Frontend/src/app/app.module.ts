@@ -27,7 +27,7 @@ import { AdminGuardService } from './services/admin-guard.service';
     HomepageComponent,
     NavbarComponent,
     ProfileComponent,
-    ProfileEditComponent
+    ProfileEditComponent,
     AddProductComponent,
   ],
   imports: [

@@ -30,6 +30,7 @@ export class UserService {
 
   updateProfile(user: any): Observable<any> {
     return this._http.put(`${this.basicUrl}/profile/update`, user, httpOptions);
+  }
   
   // used for getting logged in users saved information
   getProfile(): Observable<any>{
