@@ -20,7 +20,12 @@ export class AdminService {
 
   // used by admin account to add new products
   addProduct(product: any): Observable<any>{
-    return this._http.post(`${this.basicUrl}/admin/products`, product, httpOptions);
+    return this._http.post(`${this.basicUrl}/admin/products`, product, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      })
+    });
   }
 
 
