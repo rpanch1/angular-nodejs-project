@@ -53,8 +53,9 @@ export class ProfileComponent implements OnInit {
   saveAddress() {
     this.isAddressEdit();
     // Actually save the changes here
-    let addrString = this.newAddress.street + ", " + this.newAddress.city + ", " + this.newAddress.state + " " + this.newAddress.zip;
-    //   console.log(addrString);  
+    let addressString = this.newAddress.street + ", " + this.newAddress.city + ", " + this.newAddress.state + " " + this.newAddress.zip;
+    this.user.address = addressString;
+    this.saveProfile();
   }
 
   // Edit profile sans address edit 
@@ -67,19 +68,21 @@ export class ProfileComponent implements OnInit {
     }
   }
 
-  // Save the updated profile info
+  // Save the updated profile info to mongo
   saveProfile() {
     console.log("Updating user");
     // user service to update the user info.
   }
 
   // Upload image for user
+  // NOTE: this is not a required function for this project as stated by Instructor in QnA on 7/27
   uploadImage() {
     console.log("updating user image");
     // How to implement this? just ask for a string?
   }
 
   // Delete image for user and instate default
+  // Since the image cannot be changed this doesn't need to be implemented as of yet.
   deleteImage() {
     this.user.image = "https://www.personality-insights.com/wp-content/uploads/2017/12/default-profile-pic-e1513291410505.jpg";
     // Save updated user 
