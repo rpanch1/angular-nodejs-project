@@ -25,16 +25,24 @@ const verifyToken = (req, res, next) => {
 
 // POST /api/v1/profile
 router.post('/', verifyToken, (req, res) => {
-
+    console.log(req.token);
     jwt.verify(req.token, 'secretkey', (err, data) => {
         if (err) {
             res.status(403).json({ "message": "invalid token" });
         }
         else {
-            res.json({
-                "status": "success",
-                "profile": data.user
+            User.findById(data.user._id, (err, data) => {
+                if(err) {
+                    res.status(403).json({"error": err});
+                }
+                else{
+                    res.json({
+                        "status": "success",
+                        "profile": data
+                    })
+                }
             })
+            
         }
     })
 });

@@ -25,7 +25,10 @@ export class ProfileComponent implements OnInit {
     "zip": "",
   }
 
-  constructor(private _userService: UserService) { }
+  constructor(private _userService: UserService) {
+
+    
+  }
 
   ngOnInit(): void {
     // Get the User profile of the logged in user from mongo

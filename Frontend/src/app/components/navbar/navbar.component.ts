@@ -9,21 +9,28 @@ import { AdminGuardService } from 'src/app/services/admin-guard.service';
 })
 export class NavbarComponent implements OnInit {
 
+
   constructor(private _router: Router, private _adminAuth: AdminGuardService ) { }
 
-  loggedIn = false;
-  admin = false;
 
   ngOnInit(): void {
-    if(localStorage.getItem('token') != null){
-      this.loggedIn = true;
+  }
 
-      if(localStorage.getItem('token').split(' ')[1] == 'admin'){
-        this.admin = true;
-      }
-      else{
-        this.admin = false;
-      }
+  isLoggedIn(): boolean{
+    if(localStorage.getItem('token') != null){
+      return true;
+    }
+    else{
+      return false;
+    }
+  }
+
+  isAdmin(): any{
+    if(localStorage.getItem('token').split(' ')[1] == 'admin'){
+      return true;
+    }
+    else{
+      return false;
     }
   }
 
