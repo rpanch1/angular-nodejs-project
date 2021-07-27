@@ -60,6 +60,8 @@ export class CheckoutComponent implements OnInit {
     this.userInfo.address = this.newAddress.street + ", " + this.newAddress.city + ", " + this.newAddress.state + " " + this.newAddress.zip;
     this.order.user = this.userInfo;
     console.log("Order Placed: " + this.order);
+    // TODO: SEND ORDER TO DB THEN ROUTE TO ORDER PAGE
+    // this._router.navigate['/orders']
   }
 
   // Takes the string that is stored in the user address and parses into street, city, state, zip
