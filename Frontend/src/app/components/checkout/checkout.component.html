@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <app-navbar></app-navbar>
+
+    <div class="container" style="margin-top: 5%;" *ngIf="loadingData">
+        <h5>User Info</h5>
+        <hr>
+        <form #orderForm='ngForm' (ngSubmit)='placeOrder()'>
+            <div class='form-group mb-3'>
+                <label for="firstname">First Name</label>
+                <input type='text' class='form-control' placeholder='First Name' [(ngModel)]='userInfo.firstname'
+                    name='firstname' #firstname='ngModel'
+                    [ngClass]="{'is-invalid': firstname.touched && firstname.invalid}" required>
+                <div *ngIf='firstname.touched && firstname.invalid' class='invalid-feedback'>
+                    <div *ngIf='firstname.errors!.required'>First Name is required</div>
+                </div>
+
+                <label for="lastname">Last Name</label>
+                <input type='text' class='form-control' placeholder='Last Name' [(ngModel)]='userInfo.lastname'
+                    name='lastname' #lastname='ngModel' [ngClass]="{'is-invalid': lastname.touched && lastname.invalid}"
+                    required>
+                <div *ngIf='lastname.touched && lastname.invalid' class='invalid-feedback'>
+                    <div *ngIf='lastname.errors!.required'>Last Name is required</div>
+                </div>
+
+                <label for="email">Email</label>
+                <input type='email' class='form-control' placeholder='Email' [(ngModel)]='userInfo.email' name='email'
+                    #email='ngModel' [ngClass]="{'is-invalid': email.touched && email.invalid}" email required>
+                <div *ngIf='email.touched && email.invalid' class='invalid-feedback'>
+                    <div *ngIf='email.errors!.required'>Email is required</div>
+                    <div *ngIf='email.errors!.email'>Enter a valid email address</div>
+                </div>
+            </div>
+
+            <h5>Shipping Info</h5>
+            <hr>
+            <div class='form-group mb-3'>
+                <label for="street">Street Address</label>
+                <input type='text' class='form-control' placeholder='Street Address'
+                    [(ngModel)]='newAddress.street' name='street' #street='ngModel'
+                    [ngClass]="{'is-invalid': street.touched && street.invalid}" required>
+
+                <div *ngIf='street.touched && street.invalid' class='invalid-feedback'>
+                    <div *ngIf='street.errors!.required'>Street is required</div>
+                </div>
+                <label for="city">City</label>
+                <input type='text' class='form-control' placeholder='City' [(ngModel)]='newAddress.city'
+                    name='city' #city='ngModel' [ngClass]="{'is-invalid': city.touched && city.invalid}"
+                    required>
+
+                <div *ngIf='city.touched && city.invalid' class='invalid-feedback'>
+                    <div *ngIf='city.errors!.required'>City is required</div>
+                </div>
+                <label for="state">State</label>
+                <input type='text' class='form-control' placeholder='State' [(ngModel)]='newAddress.state'
+                    name='state' #state='ngModel' [ngClass]="{'is-invalid': state.touched && state.invalid}"
+                    required>
+
+                <div *ngIf='state.touched && state.invalid' class='invalid-feedback'>
+                    <div *ngIf='state.errors!.required'>State is required</div>
+                </div>
+                <label for="zip">Zip Code</label>
+                <input type='text' class='form-control' placeholder='Zip Code' [(ngModel)]='newAddress.zip'
+                    name='zip' #zip='ngModel' [ngClass]="{'is-invalid': zip.touched && zip.invalid}"
+                    required>
+
+                <div *ngIf='zip.touched && zip.invalid' class='invalid-feedback'>
+                    <div *ngIf='zip.errors!.required'>Zip Code is required</div>
+                </div>
+
+            </div>
+
+
+            <button type="submit" class="btn btn-primary" data-testid="checkout-button" [disabled]='orderForm.form.invalid'>Place Order</button>
+        </form>
+    </div>
+
+</body>
+
+</html>

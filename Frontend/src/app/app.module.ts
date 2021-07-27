@@ -17,7 +17,9 @@ import { ProfileEditComponent } from './components/profile-edit/profile-edit.com
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { AdminService } from './services/admin.service';
 import { AdminGuardService } from './services/admin-guard.service';
+import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CartComponent } from './components/cart/cart.component';
+
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { CartComponent } from './components/cart/cart.component';
     ProfileComponent,
     ProfileEditComponent,
     AddProductComponent,
+    CheckoutComponent,
     CartComponent,
   ],
   imports: [
