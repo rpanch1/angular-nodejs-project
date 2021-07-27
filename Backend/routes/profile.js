@@ -10,7 +10,7 @@ const verifyToken = (req, res, next) => {
     const bearerHeader = req.headers['authorization'];
 
     // check if bearer is undefined
-    if(typeof bearerHeader != 'undefined'){
+    if (typeof bearerHeader != 'undefined') {
         // split at space
         const bearer = bearerHeader.split(' ');
         // get token from array
@@ -18,8 +18,8 @@ const verifyToken = (req, res, next) => {
         // set the token
         req.token = bearerToken;
         next();
-    }else {
-        res.status(403).json({"message": "invalid token"});
+    } else {
+        res.status(403).json({ "message": "invalid token" });
     }
 }
 
@@ -27,8 +27,8 @@ const verifyToken = (req, res, next) => {
 router.post('/', verifyToken, (req, res) => {
 
     jwt.verify(req.token, 'secretkey', (err, data) => {
-        if(err) {
-            res.status(403).json({"message": "invalid token"});
+        if (err) {
+            res.status(403).json({ "message": "invalid token" });
         }
         else {
             res.json({
@@ -42,14 +42,14 @@ router.post('/', verifyToken, (req, res) => {
 // DELETE /api/v1/profile/image
 router.delete('/image', verifyToken, (req, res) => {
     jwt.verify(req.token, 'secretkey', (err, data) => {
-        if(err) {
-            res.status(403).json({"message": "invalid token"});
+        if (err) {
+            res.status(403).json({ "message": "invalid token" });
         }
         else {
-            User.findOneAndUpdate(data.user._id, {image: ''}, (err) => {
-                if(err){
-                    res.status(400).json({"message": "could not delete profile image"});
-                }else {
+            User.findOneAndUpdate(data.user._id, { image: '' }, (err) => {
+                if (err) {
+                    res.status(400).json({ "message": "could not delete profile image" });
+                } else {
                     res.json({
                         "status": "success",
                         "message": "profile image deleted successfully"
@@ -60,38 +60,17 @@ router.delete('/image', verifyToken, (req, res) => {
     })
 });
 
-// PUT /api/v1/profile/image
-router.put('/image', verifyToken, (req, res) => {
+// PUT /api/v1/profile/update
+router.put('/update', verifyToken, (req, res) => {
     jwt.verify(req.token, 'secretkey', (err, data) => {
-        if(err) {
-            res.status(403).json({"message": "invalid token"});
+        if (err) {
+            res.status(403).json({ "message": "invalid token" });
         }
         else {
             User.findOneAndUpdate(data.user._id, req.body, (err) => {
-                if(err){
-                    res.status(400).json({"message": "could not update profile image"});
-                }else {
-                    res.json({
-                        "status": "success",
-                        "message": "profile image updated successfully"
-                    })
-                }
-            })
-        }
-    })
-});
-
-// PUT /api/v1/profile/address
-router.put('/address', verifyToken, (req, res) => {
-    jwt.verify(req.token, 'secretkey', (err, data) => {
-        if(err) {
-            res.status(403).json({"message": "invalid token"});
-        }
-        else {
-            User.findOneAndUpdate(data.user._id, req.body, (err) => {
-                if(err){
-                    res.status(400).json({"message": "could not update address"});
-                }else {
+                if (err) {
+                    res.status(400).json({ "message": "could not update profile" });
+                } else {
                     res.json({
                         "status": "success",
                         "message": "profile updated successfully"

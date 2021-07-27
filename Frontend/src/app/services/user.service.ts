@@ -27,6 +27,9 @@ export class UserService {
   loginUser(user: any): Observable<any> {
     return this._http.post(`${this.basicUrl}/users/login`, user, httpOptions);
   }
+
+  updateProfile(user: any): Observable<any> {
+    return this._http.put(`${this.basicUrl}/profile/update`, user, httpOptions);
   
   // used for getting logged in users saved information
   getProfile(): Observable<any>{

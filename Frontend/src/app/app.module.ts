@@ -12,10 +12,11 @@ import { UserService } from './services/user.service';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { AddProductComponent } from './components/add-product/add-product.component';
 import { AdminService } from './services/admin.service';
 import { AdminGuardService } from './services/admin-guard.service';
-
 
 @NgModule({
   declarations: [
@@ -25,6 +26,8 @@ import { AdminGuardService } from './services/admin-guard.service';
     LoginComponent,
     HomepageComponent,
     NavbarComponent,
+    ProfileComponent,
+    ProfileEditComponent
     AddProductComponent,
   ],
   imports: [
