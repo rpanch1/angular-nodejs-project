@@ -9,7 +9,8 @@ const userSchema = mongoose.Schema({
     address: {type: String, default: ''},
     image: {type: String, default: ''},
     interests: {type: String, default: ''},
-    role: {type: String, default: 'normal'}
+    role: {type: String, default: 'normal'},
+    cart: {type: [], default: []}
 })
 
 module.exports = mongoose.model('User', userSchema);
