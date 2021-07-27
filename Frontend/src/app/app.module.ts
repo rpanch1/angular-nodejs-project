@@ -13,6 +13,7 @@ import { HomepageComponent } from './components/homepage/homepage.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ProfileComponent } from './components/profile/profile.component';
     LoginComponent,
     HomepageComponent,
     NavbarComponent,
-    ProfileComponent
+    ProfileComponent,
+    ProfileEditComponent
   ],
   imports: [
     BrowserModule,

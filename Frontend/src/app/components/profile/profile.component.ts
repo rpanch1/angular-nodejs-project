@@ -55,26 +55,9 @@ export class ProfileComponent implements OnInit {
     // Actually save the changes here
     let addressString = this.newAddress.street + ", " + this.newAddress.city + ", " + this.newAddress.state + " " + this.newAddress.zip;
     this.user.address = addressString;
-    this.saveProfile();
-  }
-
-  // Edit profile sans address edit 
-  editProfile() {
-    console.log("Editing Profile");
-    if (this.editFields) {
-      this.editFields = false;
-    } else {
-      this.editFields = true;
-    }
-  }
-
-  // Save the updated profile info to mongo
-  saveProfile() {
-    console.log("Updating user");
-    // user service to update the user info.
     this._userService.updateProfile(this.user).subscribe((response) => {
-      console.log(response.status);
-    })
+      console.log(response.message);
+    });
   }
 
   // Upload image for user
@@ -89,7 +72,7 @@ export class ProfileComponent implements OnInit {
   deleteImage() {
     this.user.image = "https://www.personality-insights.com/wp-content/uploads/2017/12/default-profile-pic-e1513291410505.jpg";
     // Save updated user 
-    console.log("Delete user image and return to default")
+    console.log("Deleted user image and returned to default")
   }
 
 }

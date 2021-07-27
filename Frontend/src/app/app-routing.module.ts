@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { LoginComponent } from './components/login/login.component';
+import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AuthGuardService } from './services/auth-guard.service';
@@ -12,6 +13,7 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'profile', component: ProfileComponent, canActivate: [AuthGuardService]},
+  {path: 'profile-edit', component: ProfileEditComponent, canActivate: [AuthGuardService]},
 ];
 
 @NgModule({

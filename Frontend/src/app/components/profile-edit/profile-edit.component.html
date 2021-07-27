@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <app-navbar></app-navbar>
+
+    <div class="container emp-profile" style="margin-top: 3%;" *ngIf="loadingData">
+        <h5>Edit Profile</h5>
+        <hr>
+        <form #profileForm='ngForm' (ngSubmit)='saveProfile()'>
+            <div class='form-group mb-3'>
+                <label for="firstname">First Name</label>
+                <input type='text' class='form-control' placeholder='First Name' [(ngModel)]='user.firstname'
+                    name='firstname' #firstname='ngModel' [ngClass]="{'is-invalid': firstname.touched && firstname.invalid}"
+                    required>
+                <div *ngIf='firstname.touched && firstname.invalid' class='invalid-feedback'>
+                    <div *ngIf='firstname.errors!.required'>First Name is required</div>
+                </div>
+    
+                <label for="lastname">Last Name</label>
+                <input type='text' class='form-control' placeholder='Last Name' [(ngModel)]='user.lastname' name='lastname'
+                    #lastname='ngModel' [ngClass]="{'is-invalid': lastname.touched && lastname.invalid}" required>
+                <div *ngIf='lastname.touched && lastname.invalid' class='invalid-feedback'>
+                    <div *ngIf='lastname.errors!.required'>Last Name is required</div>
+                </div>
+    
+                <label for="email">Email</label>
+                <input type='email' class='form-control' value={{user.email}} name='email' disabled>
+    
+                <label for="phone">Phone Number</label>
+                <input type='text' class='form-control' placeholder='Phone Number' [(ngModel)]='user.phone' name='phone'
+                    #phone='ngModel'>
+    
+                <label for="interests">Interests</label>
+                <input type='text' class='form-control' placeholder='Interests' [(ngModel)]='user.interests'
+                    name='interests' #interests='ngModel'>
+    
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]='profileForm.form.invalid'>Save</button> |
+            <button class="btn btn-danger" routerLink="/profile">Cancel</button>
+        </form>
+    </div>
+   
+</body>
+
+</html>

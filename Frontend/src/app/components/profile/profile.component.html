@@ -23,7 +23,7 @@
             <div class="col-md-6">
                 <div class="profile-head">
                     <h5>
-                        {{user.firstname}} {{user.lastname}}
+                        My Profile
                     </h5>
                     <hr>
                     <div class="tab-content profile-tab">
@@ -79,7 +79,8 @@
                 </div>
             </div>
             <div class="col-md-2">
-                <input type="button" class="profile-edit-btn" name="btnAddMore" (click)="editProfile()" value="Edit Profile" />
+                <input type="button" class="profile-edit-btn" name="btnAddMore" routerLink="/profile-edit"
+                    value="Edit Profile" />
             </div>
         </div>
         <!-- Second row under photo and info -->
@@ -139,8 +140,8 @@
                             </div>
 
                         </div>
-                        <button type="submit" class="btn btn-primary"
-                            [disabled]='addressForm.form.invalid'>Save</button> |
+                        <button type="submit" class="btn btn-primary" [disabled]='addressForm.form.invalid'>Save
+                            Address</button> |
                         <button class="btn btn-danger" (click)="isAddressEdit()">Cancel</button>
                     </form>
                 </div>
