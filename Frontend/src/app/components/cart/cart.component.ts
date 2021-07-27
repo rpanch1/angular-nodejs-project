@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -8,7 +9,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class CartComponent implements OnInit {
 
-  constructor(private _userService: UserService) { }
+  constructor(private _userService: UserService, private _router: Router) { }
 
   cart = [];
   total: number = 0;
@@ -29,7 +30,7 @@ export class CartComponent implements OnInit {
   }
 
   checkout(){
-    
+    this._router.navigate(['/checkout']);
   }
 
   getTotal(){
