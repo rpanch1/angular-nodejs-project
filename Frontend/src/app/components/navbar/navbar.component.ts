@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AdminGuardService } from 'src/app/services/admin-guard.service';
 
 @Component({
   selector: 'app-navbar',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor(private _router: Router) { }
+  constructor(private _router: Router, private _adminAuth: AdminGuardService ) { }
 
   loggedIn = false;
   admin = false;
@@ -16,6 +17,13 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     if(localStorage.getItem('token') != null){
       this.loggedIn = true;
+
+      if(localStorage.getItem('token').split(' ')[1] == 'admin'){
+        this.admin = true;
+      }
+      else{
+        this.admin = false;
+      }
     }
   }
 

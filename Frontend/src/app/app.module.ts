@@ -12,6 +12,10 @@ import { UserService } from './services/user.service';
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { AdminService } from './services/admin.service';
+import { AdminGuardService } from './services/admin-guard.service';
+
 
 @NgModule({
   declarations: [
@@ -20,15 +24,17 @@ import { NavbarComponent } from './components/navbar/navbar.component';
     RegisterComponent,
     LoginComponent,
     HomepageComponent,
-    NavbarComponent
+    NavbarComponent,
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+
   ],
-  providers: [UserService, AuthGuardService],
+  providers: [UserService, AdminService, AuthGuardService, AdminGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

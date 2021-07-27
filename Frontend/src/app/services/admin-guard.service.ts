@@ -1,26 +1,22 @@
 import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
-
+import { AuthGuardService } from './auth-guard.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService {
+export class AdminGuardService {
 
-  constructor(private _router: Router) { }
+  constructor(private _router: Router, private _authService: AuthGuardService) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): any {
-    if(this.isLoggedIn()){
+
+    if(localStorage.getItem('token').split(' ')[1] == 'admin'){
       return true;
-    }else{
+    }
+    else {
       this._router.navigate(['login']);
     }
-  }
-
-  isLoggedIn(): boolean {
-    if(localStorage.getItem('token') == null){
-        return false;
-    }
-    return true;
+    
   }
 }
