@@ -72,6 +72,9 @@ export class ProfileComponent implements OnInit {
   saveProfile() {
     console.log("Updating user");
     // user service to update the user info.
+    this._userService.updateProfile(this.user).subscribe((response) => {
+      console.log(response.status);
+    })
   }
 
   // Upload image for user

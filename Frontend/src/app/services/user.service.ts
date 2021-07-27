@@ -29,4 +29,8 @@ export class UserService {
   getProfile(): Observable<any> {
     return this._http.post(`${this.basicUrl}/profile`, {}, httpOptions);
   }
+
+  updateProfile(user: any): Observable<any> {
+    return this._http.put(`${this.basicUrl}/profile/update`, user, httpOptions);
+  }
 }
