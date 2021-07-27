@@ -67,4 +67,8 @@ export class UserService {
     }
     return this._http.post(`${this.basicUrl}/profile`, {}, header);
   }
+
+  getProducts(): Observable<any>{
+    return this._http.get(`${this.basicUrl}/products`);
+  }
 }

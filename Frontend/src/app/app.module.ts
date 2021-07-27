@@ -18,6 +18,8 @@ import { AddProductComponent } from './components/add-product/add-product.compon
 import { AdminService } from './services/admin.service';
 import { AdminGuardService } from './services/admin-guard.service';
 import { CheckoutComponent } from './components/checkout/checkout.component';
+import { CartComponent } from './components/cart/cart.component';
+
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
     ProfileEditComponent,
     AddProductComponent,
     CheckoutComponent,
+    CartComponent,
   ],
   imports: [
     BrowserModule,

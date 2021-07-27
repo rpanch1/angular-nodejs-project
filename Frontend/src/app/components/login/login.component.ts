@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
 
       this._userService.getUserRole(response.accessToken).subscribe((res) => {
         localStorage.setItem('token', response.accessToken + ' ' + res.profile.role);
-        console.log(localStorage.getItem('token'));
         this._router.navigate(['home']);
 
       }, (error) => console.log(error));

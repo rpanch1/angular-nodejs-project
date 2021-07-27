@@ -25,7 +25,6 @@ const verifyToken = (req, res, next) => {
 
 // POST /api/v1/profile
 router.post('/', verifyToken, (req, res) => {
-    console.log(req.token);
     jwt.verify(req.token, 'secretkey', (err, data) => {
         if (err) {
             res.status(403).json({ "message": "invalid token" });
@@ -54,7 +53,7 @@ router.delete('/image', verifyToken, (req, res) => {
             res.status(403).json({ "message": "invalid token" });
         }
         else {
-            User.findOneAndUpdate(data.user._id, { image: '' }, (err) => {
+            User.findByIdAndUpdate(data.user._id, { image: '' }, (err) => {
                 if (err) {
                     res.status(400).json({ "message": "could not delete profile image" });
                 } else {
@@ -75,7 +74,7 @@ router.put('/update', verifyToken, (req, res) => {
             res.status(403).json({ "message": "invalid token" });
         }
         else {
-            User.findOneAndUpdate(data.user._id, req.body, (err) => {
+            User.findByIdAndUpdate(data.user._id, req.body, (err) => {
                 if (err) {
                     res.status(400).json({ "message": "could not update profile" });
                 } else {
