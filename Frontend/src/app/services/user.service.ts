@@ -18,19 +18,32 @@ export class UserService {
 
   constructor(private _http: HttpClient) { }
 
+  // used for registering new users
   registerUser(user: any): Observable<any> {
     return this._http.post(`${this.basicUrl}/users/register`, user, httpOptions);
   }
 
+  // used for loggin in
   loginUser(user: any): Observable<any> {
     return this._http.post(`${this.basicUrl}/users/login`, user, httpOptions);
   }
 
-  getProfile(): Observable<any> {
+  updateProfile(user: any): Observable<any> {
+    return this._http.put(`${this.basicUrl}/profile/update`, user, httpOptions);
+  
+  // used for getting logged in users saved information
+  getProfile(): Observable<any>{
     return this._http.post(`${this.basicUrl}/profile`, {}, httpOptions);
   }
 
-  updateProfile(user: any): Observable<any> {
-    return this._http.put(`${this.basicUrl}/profile/update`, user, httpOptions);
+  // only used when loggin in - usesr token is passed in param since its not yet stored in localstorage before logged in
+  getUserRole(token: string): Observable<any>{
+    const header = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      })
+    }
+    return this._http.post(`${this.basicUrl}/profile`, {}, header);
   }
 }

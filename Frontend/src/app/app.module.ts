@@ -14,6 +14,9 @@ import { AuthGuardService } from './services/auth-guard.service';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { ProfileEditComponent } from './components/profile-edit/profile-edit.component';
+import { AddProductComponent } from './components/add-product/add-product.component';
+import { AdminService } from './services/admin.service';
+import { AdminGuardService } from './services/admin-guard.service';
 
 @NgModule({
   declarations: [
@@ -25,14 +28,16 @@ import { ProfileEditComponent } from './components/profile-edit/profile-edit.com
     NavbarComponent,
     ProfileComponent,
     ProfileEditComponent
+    AddProductComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+
   ],
-  providers: [UserService, AuthGuardService],
+  providers: [UserService, AdminService, AuthGuardService, AdminGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

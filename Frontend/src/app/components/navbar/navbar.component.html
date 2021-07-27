@@ -8,6 +8,7 @@
             <li *ngIf='loggedIn' class='nav-item active'><a class='nav-link' routerLink='/profile'>Profile</a></li>
             <li *ngIf='loggedIn' class='nav-item active'><a class='nav-link' routerLink='/'>Cart</a></li>
             <li *ngIf='loggedIn' class='nav-item active'><a class='nav-link' routerLink='/'>Orders</a></li>
+            <li *ngIf='loggedIn && admin' class='nav-item active'><a class='nav-link' routerLink='/admin/add-new-product'>Add Product</a></li>
             <li *ngIf='loggedIn' class='nav-item active'><a class='nav-link' routerLink='/login'>Logout</a></li>
         </ul>
     </div>

@@ -27,7 +27,7 @@ router.post('/products', verifyToken, (req, res) => {
 
     jwt.verify(req.token, 'secretkey', (err, data) => {
         if(err) {
-            res.status(403).json({"message": "invalid token"});
+            res.status(403).json({"message": "invalid token", "error": err});
         }
         else if(data.user.role == 'normal'){
             res.status(403).json({"message": "user is not admin"});
@@ -60,7 +60,7 @@ router.delete('/products/:id', verifyToken, (req, res) => {
 
     jwt.verify(req.token, 'secretkey', (err, data) => {
         if(err) {
-            res.status(403).json({"message": "invalid token"});
+            res.status(403).json({"message": "invalid token", "error": err});
         }
         else if(data.user.role == 'normal'){
             res.status(403).json({"message": "user is not admin"});
