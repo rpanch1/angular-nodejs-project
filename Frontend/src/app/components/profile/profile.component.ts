@@ -34,7 +34,7 @@ export class ProfileComponent implements OnInit {
     // Get the User profile of the logged in user from mongo
     this._userService.getProfile().subscribe((result) => {
       this.user = result.profile;
-      console.log(this.user);
+      // console.log(this.user);
       // Make sure that there is a default image.
       if (this.user.image == "") {
         this.user.image = "https://www.personality-insights.com/wp-content/uploads/2017/12/default-profile-pic-e1513291410505.jpg";
