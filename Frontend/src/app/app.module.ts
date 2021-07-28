@@ -20,6 +20,7 @@ import { AdminGuardService } from './services/admin-guard.service';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ManageOrderComponent } from './components/manage-order/manage-order.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { ManageOrderComponent } from './components/manage-order/manage-order.com
     CheckoutComponent,
     CartComponent,
     ManageOrderComponent,
+    OrdersComponent,
   ],
   imports: [
     BrowserModule,

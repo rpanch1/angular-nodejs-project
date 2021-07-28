@@ -1,0 +1,30 @@
+<app-navbar></app-navbar>
+<div id='div' class="col-md-10 order-md-2 mb-4">
+    <section class="jumbotron text-center">
+        <div class="container"><br>
+          <h2 class="jumbotron-heading">Orders</h2>
+        </div>
+    </section><br>
+
+
+    <ul class="list-group mb-3" *ngFor='let order of orders; let i=index'>
+        <small class="text-muted">order id: {{order._id}}</small>
+        <ul class="list-group sticky-top" *ngFor='let item of order.cart'>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+                <div>
+                    <h6 class="my-0">{{item.name}}</h6>
+                    <small class="text-muted">{{item.price | currency}}</small>
+                </div>
+            </li>
+        </ul>
+        <li class="list-group-item d-flex justify-content-between">
+            <span>
+                <div>Total: <strong>{{order.total | currency}}</strong></div>
+                <div>Order Date: <strong>{{order.orderPlacedOn}}</strong></div>
+                <div>Order Delivered: <strong>{{order.isDelivered}}</strong></div>
+            </span>
+        </li>
+    </ul>
+    
+</div>
+

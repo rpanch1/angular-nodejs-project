@@ -31,7 +31,8 @@ router.post('/', verifyToken, (req, res) => {
         else {
             var order = new Order({
                 user: req.body.user,
-                cart: req.body.cart
+                cart: req.body.cart,
+                total: req.body.total
             })
             Order.create(order, (err) => {
                 if(err) { 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { AdminService } from 'src/app/services/admin.service';
 
 @Component({
@@ -17,7 +18,7 @@ export class AddProductComponent implements OnInit {
     image: '',
   }
 
-  constructor(private _adminService: AdminService) { }
+  constructor(private _adminService: AdminService, private _router: Router) { }
 
   ngOnInit(): void {
   }
@@ -27,6 +28,7 @@ export class AddProductComponent implements OnInit {
     console.log(this.newProduct);
     this._adminService.addProduct(this.newProduct).subscribe((response) => {
       alert(response.message);
+      this._router.navigate(['home']);
     }, (err) => console.log(err))
   }
 }

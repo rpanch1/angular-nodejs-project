@@ -31,20 +31,30 @@ router.get('/', verifyToken, (req, res) => {
         if(err) {
             res.status(403).json({"message": "invalid token"});
         }
-        else if(data.user.role == 'normal'){
-            User.findOne({email: data.user.email}, (err, user) => {
+        else {
+            User.findById({_id: data.user._id}, (err, user) => {
                 if(err){
                     res.status(403).json({"message": "user not found"});
                 }else{
                     Order.find((err, orders) => {
-                        var userOrders = orders.filter((order) => order.user.email == user.email);
+                        var userOrders = orders.filter((order) => order.user.userid == user._id);
                         res.json({ "status": "success", "orders": userOrders })
                     })
                 }
             })
         }
+    })
+});
+
+// GET /api/v1/orders/all
+router.get('/all', verifyToken, (req, res) => {
+
+    jwt.verify(req.token, 'secretkey', (err, data) => {
+        if(err) {
+            res.status(403).json({"message": "invalid token"});
+        }
         else {
-            User.findOne({email: data.user.email}, (err, user) => {
+            User.findById({_id: data.user._id}, (err, user) => {
                 if(err){
                     res.status(403).json({"message": "user not found"});
                 }else{
