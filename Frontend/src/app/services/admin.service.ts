@@ -28,6 +28,16 @@ export class AdminService {
     });
   }
 
+  // used to get list of ALL orders in system
+  // TODO: THIS WILL BE UPDATED TO A DIFFERNT API LATER
+  getOrders(): Observable<any>{
+    return this._http.get(`${this.basicUrl}/orders`, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      })
+    });
+  }
 
   // used to display all orders
   getOrders(): Observable<any>{

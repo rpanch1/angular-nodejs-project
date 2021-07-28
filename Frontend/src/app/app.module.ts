@@ -19,6 +19,7 @@ import { AdminService } from './services/admin.service';
 import { AdminGuardService } from './services/admin-guard.service';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CartComponent } from './components/cart/cart.component';
+import { ManageOrderComponent } from './components/manage-order/manage-order.component';
 import { OrdersComponent } from './components/orders/orders.component';
 
 
@@ -35,6 +36,7 @@ import { OrdersComponent } from './components/orders/orders.component';
     AddProductComponent,
     CheckoutComponent,
     CartComponent,
+    ManageOrderComponent,
     OrdersComponent,
   ],
   imports: [
