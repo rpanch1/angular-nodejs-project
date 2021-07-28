@@ -28,9 +28,15 @@ export class AdminService {
     });
   }
 
-  getProducts(): Observable<any>{
-    return this._http.get(`${this.basicUrl}/products`);
+  // used to get list of ALL orders in system
+  // TODO: THIS WILL BE UPDATED TO A DIFFERNT API LATER
+  getOrders(): Observable<any>{
+    return this._http.get(`${this.basicUrl}/orders`, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      })
+    });
   }
-
 
 }

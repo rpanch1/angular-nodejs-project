@@ -22,7 +22,7 @@
             </thead>
             <tbody>
                 <tr *ngFor="let order of orderList" data-testid="manage-order-row">
-                    <td>{{order._id}}</td>
+                    <td [ngStyle]="{'color': order.isDelivered == true ? 'green' : ''}" >{{order._id}}</td>
                     <td>
                         <a>Process | Delete</a>
                     </td>

@@ -34,10 +34,11 @@ export class ManageOrderComponent implements OnInit {
   constructor(private _adminService: AdminService) { }
 
   ngOnInit(): void {
-    // this._orderService.getOrders().subscribe((result) => {
+    // this._adminService.getOrders().subscribe((result) => {
     //   console.log(result);
     //   this.orderList = result.orders;
-    // })
+    // });
+    this.orderList.sort((x,y) => {return (x === y)? 0 : x? 1 : -1;})
   }
 
 }
