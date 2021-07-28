@@ -39,5 +39,37 @@ export class AdminService {
     });
   }
 
+  
+  // used to display all users from database
+  getUsers(): Observable<any>{
+    return this._http.get(`${this.basicUrl}/admin/users`, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      })
+    });
+  }
+
+
+  // used by admin to remove a user
+  removeUser(userid: any): Observable<any>{
+    return this._http.delete(`${this.basicUrl}/admin/users/${userid}`, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      })
+    });
+  }
+
+  // used by admin to add a user
+  addUser(user: any): Observable<any>{
+    return this._http.post(`${this.basicUrl}/admin/add-user`, user, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      })
+    });
+  }
+
 
 }
