@@ -31,7 +31,7 @@ router.get('/', verifyToken, (req, res) => {
         if(err) {
             res.status(403).json({"message": "invalid token"});
         }
-        else if(data.user.role == 'normal'){
+        else {
             User.findById({_id: data.user._id}, (err, user) => {
                 if(err){
                     res.status(403).json({"message": "user not found"});
@@ -42,6 +42,16 @@ router.get('/', verifyToken, (req, res) => {
                     })
                 }
             })
+        }
+    })
+});
+
+// GET /api/v1/orders/all
+router.get('/all', verifyToken, (req, res) => {
+
+    jwt.verify(req.token, 'secretkey', (err, data) => {
+        if(err) {
+            res.status(403).json({"message": "invalid token"});
         }
         else {
             User.findById({_id: data.user._id}, (err, user) => {

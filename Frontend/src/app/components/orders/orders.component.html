@@ -7,7 +7,7 @@
     </section><br>
 
 
-    <ul class="list-group mb-3 sticky-top" *ngFor='let order of orders; let i=index'>
+    <ul class="list-group mb-3" *ngFor='let order of orders; let i=index'>
         <small class="text-muted">order id: {{order._id}}</small>
         <ul class="list-group sticky-top" *ngFor='let item of order.cart'>
             <li class="list-group-item d-flex justify-content-between lh-condensed">
