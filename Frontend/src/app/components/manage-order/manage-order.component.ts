@@ -38,7 +38,16 @@ export class ManageOrderComponent implements OnInit {
     //   console.log(result);
     //   this.orderList = result.orders;
     // });
-    this.orderList.sort((x,y) => {return (x === y)? 0 : x? 1 : -1;})
+    this.orderList.sort((x,y) => (x.isDelivered === y.isDelivered)? 0 : x.isDelivered ? 1 : -1)
+    console.log(this.orderList);
+  }
+
+  processOrder() {
+    console.log("Processing Order");
+  }
+
+  deleteOrder() {
+    console.log("Delete Order");
   }
 
 }
