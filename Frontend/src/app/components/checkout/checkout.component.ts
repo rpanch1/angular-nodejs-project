@@ -65,7 +65,6 @@ export class CheckoutComponent implements OnInit {
     this.order.total = this.getTotal();
     this._userService.placeOrder(this.order).subscribe((res) => {
       this._userService.updateProfile({cart: []}).subscribe((res) => {
-        console.log(res);
         alert(res.message);
         this._router.navigate(['/orders']);
       }, (err) => (console.log(err)));
