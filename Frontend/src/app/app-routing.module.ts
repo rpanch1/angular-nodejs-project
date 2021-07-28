@@ -10,6 +10,7 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AdminGuardService } from './services/admin-guard.service';
 import { AuthGuardService } from './services/auth-guard.service';
+import { OrdersComponent } from './components/orders/orders.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -21,6 +22,7 @@ const routes: Routes = [
   {path: 'profile-edit', component: ProfileEditComponent, canActivate: [AuthGuardService]},
   {path: 'admin/add-new-product', component: AddProductComponent, canActivate: [AuthGuardService, AdminGuardService]},
   {path: 'checkout', component: CheckoutComponent, canActivate: [AuthGuardService]},
+  {path: 'orders', component: OrdersComponent, canActivate: [AuthGuardService]},
 ];
 
 @NgModule({

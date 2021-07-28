@@ -12,6 +12,7 @@ export class CheckoutComponent implements OnInit {
 
   // User to get the cart and start building the order.
   userInfo = {
+    "userid": "",
     "firstname": "",
     "lastname": "",
     "email": "",
@@ -30,6 +31,7 @@ export class CheckoutComponent implements OnInit {
   order = {
     "user": {},
     "cart": [],
+    "total": 0
   }
 
   loadingData: Boolean = false;
@@ -42,16 +44,17 @@ export class CheckoutComponent implements OnInit {
       // Get the User profile of the logged in user from mongo
       this._userService.getProfile().subscribe((result) => {
         console.log(result);
+        this.userInfo.userid = result.profile._id;
         this.userInfo.firstname = result.profile.firstname;
         this.userInfo.lastname = result.profile.lastname;
         this.userInfo.email = result.profile.email;
         this.parseAddress(result.profile.address);
+        this.order.cart = result.profile.cart;
         this.loadingData = true;
       });
     } else {
       this.loadingData = true
     }
-    this.order.cart = this.getCart();
   }
 
   // On click of order button. Compiles all of the info into the order obj and sends to db. routes to order page
@@ -59,9 +62,14 @@ export class CheckoutComponent implements OnInit {
   placeOrder() {
     this.userInfo.address = this.newAddress.street + ", " + this.newAddress.city + ", " + this.newAddress.state + " " + this.newAddress.zip;
     this.order.user = this.userInfo;
-    console.log("Order Placed: " + this.order);
-    // TODO: SEND ORDER TO DB THEN ROUTE TO ORDER PAGE
-    // this._router.navigate['/orders']
+    this.order.total = this.getTotal();
+    this._userService.placeOrder(this.order).subscribe((res) => {
+      this._userService.updateProfile({cart: []}).subscribe((res) => {
+        console.log(res);
+        alert(res.message);
+        this._router.navigate(['/orders']);
+      }, (err) => (console.log(err)));
+    }, (err) => console.log(err))
   }
 
   // Takes the string that is stored in the user address and parses into street, city, state, zip
@@ -78,9 +86,12 @@ export class CheckoutComponent implements OnInit {
     this.newAddress.zip = addrArray[3];
   }
 
-  // TODO: IMPLEMENT THIS
-  getCart(): Array<any> {
-    return [];
+  getTotal(){
+    var total = 0;
+    for(var i=0; i<this.order.cart.length; i++){
+      total += this.order.cart[i].discountPrice;
+    }
+    return total;
   }
 
 }
