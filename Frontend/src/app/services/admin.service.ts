@@ -28,7 +28,6 @@ export class AdminService {
     });
   }
 
-
   // used to display all orders
   getOrders(): Observable<any>{
     return this._http.get(`${this.basicUrl}/orders/all`, {
@@ -70,6 +69,5 @@ export class AdminService {
       })
     });
   }
-
 
 }
