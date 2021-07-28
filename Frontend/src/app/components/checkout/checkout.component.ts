@@ -66,6 +66,10 @@ export class CheckoutComponent implements OnInit {
 
   // Takes the string that is stored in the user address and parses into street, city, state, zip
   parseAddress(address: String) {
+    // New users will not have a parseable string will just be ""
+    if (address == "") {
+      return;
+    }
     let addrArray = address.split(/ /);
     console.log(addrArray);
     this.newAddress.street = addrArray[0].slice(0, -1);
