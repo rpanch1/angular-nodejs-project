@@ -89,9 +89,11 @@
                 <div class="profile-work">
                     <div class="profile-img">
                         <button class="btn btn-outline-danger btn-sm" data-testid="profile-delete-button"
-                            style="margin-right: 5px;" (click)="deleteImage()">Delete Image</button>
+                            style="margin-right: 5px;" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete
+                            Image</button>
                         <button class="btn btn-outline-success btn-sm" data-testid="profile-upload-button"
-                            (click)="uploadImage()">Upload Image</button>
+                            data-bs-toggle="modal" data-bs-target="#uploadImageModal">Upload
+                            Image</button>
                     </div>
                 </div>
             </div>
@@ -148,6 +150,48 @@
             </div>
         </div>
     </div>
+
+    <!-- Upload Image Modal -->
+    <div class="modal fade" id="uploadImageModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="uploadModalLabel">Upload Image</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input class="form-control" type="text" id="imageUrl" placeholder="Image URL">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="uploadImage()" data-bs-dismiss="modal">Save
+                        changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Image Confirmation Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Delete Image</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete profile image?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" (click)="deleteImage()">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
+
+
 
 </html>
