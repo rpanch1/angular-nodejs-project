@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <app-navbar></app-navbar>
+    <div class="container" style="margin-top: 5%;">
+        <h4>Manage Orders</h4>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Order Info</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let order of orderList" data-testid="manage-order-row">
+                    <td>{{order._id}}</td>
+                    <td>
+                        <a>Process | Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+
+</html>

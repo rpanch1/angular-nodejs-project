@@ -19,6 +19,7 @@ import { AdminService } from './services/admin.service';
 import { AdminGuardService } from './services/admin-guard.service';
 import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CartComponent } from './components/cart/cart.component';
+import { ManageOrderComponent } from './components/manage-order/manage-order.component';
 
 
 @NgModule({
@@ -34,6 +35,7 @@ import { CartComponent } from './components/cart/cart.component';
     AddProductComponent,
     CheckoutComponent,
     CartComponent,
+    ManageOrderComponent,
   ],
   imports: [
     BrowserModule,
