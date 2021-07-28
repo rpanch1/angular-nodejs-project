@@ -27,7 +27,7 @@ export class ProfileComponent implements OnInit {
 
   constructor(private _userService: UserService) {
 
-    
+
   }
 
   ngOnInit(): void {
@@ -67,7 +67,14 @@ export class ProfileComponent implements OnInit {
   // NOTE: this is not a required function for this project as stated by Instructor in QnA on 7/27
   uploadImage() {
     console.log("updating user image");
-    // How to implement this? just ask for a string?
+    let val = (<HTMLInputElement>document.getElementById('imageUrl')).value;
+    if (val == "") {
+      val = "https://www.personality-insights.com/wp-content/uploads/2017/12/default-profile-pic-e1513291410505.jpg";
+    }
+    this.user.image = val;
+    this._userService.updateProfile(this.user).subscribe((response) => {
+      console.log(response);
+    });
   }
 
   // Delete image for user and instate default
@@ -75,7 +82,9 @@ export class ProfileComponent implements OnInit {
   deleteImage() {
     this.user.image = "https://www.personality-insights.com/wp-content/uploads/2017/12/default-profile-pic-e1513291410505.jpg";
     // Save updated user 
-    console.log("Deleted user image and returned to default")
+    this._userService.updateProfile(this.user).subscribe((response) => {
+      console.log(response);
+    });
   }
 
 }
