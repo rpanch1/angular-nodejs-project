@@ -28,5 +28,9 @@ export class AdminService {
     });
   }
 
+  getProducts(): Observable<any>{
+    return this._http.get(`${this.basicUrl}/products`);
+  }
+
 
 }
