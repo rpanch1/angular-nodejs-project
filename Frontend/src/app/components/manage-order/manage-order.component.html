@@ -24,9 +24,10 @@
                 <tr *ngFor="let order of orderList" data-testid="manage-order-row">
                     <td [ngStyle]="{'color': order.isDelivered == true ? 'green' : ''}">{{order._id}}</td>
                     <td>
-                        <button class="btn btn-secondary" *ngIf="!order.isDelivered" data-bs-toggle="modal"
-                            data-bs-target="#processModal" style="margin-right: 5px;">Process</button>
-                        <button class="btn btn-danger" data-bs-toggle="modal"
+                        <button class="btn btn-secondary dialog" *ngIf="!order.isDelivered" data-bs-toggle="modal"
+                            (click)="getOrder(order)" data-bs-target="#processModal"
+                            style="margin-right: 5px;">Process</button>
+                        <button class="btn btn-danger dialog" data-bs-toggle="modal" (click)="getOrder(order)"
                             data-bs-target="#deleteModal">Delete</button>
                     </td>
                 </tr>
@@ -43,7 +44,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    Are you sure you want mark order as processed?
+                    <p>Are you sure you want mark order as processed?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
@@ -67,8 +68,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal"
-                        (click)="deleteOrder()">Delete</button>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                        (click)="deleteOrder()" data-bs-target="#deleteModal">Delete</button>
                 </div>
             </div>
         </div>
