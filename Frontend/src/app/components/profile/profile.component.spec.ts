@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
 import { ProfileComponent } from './profile.component';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -8,7 +11,12 @@ describe('ProfileComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ProfileComponent ]
+      imports: [ 
+        RouterTestingModule, 
+        HttpClientTestingModule,
+        FormsModule
+      ],
+      declarations: [ ProfileComponent, NavbarComponent ]
     })
     .compileComponents();
   });

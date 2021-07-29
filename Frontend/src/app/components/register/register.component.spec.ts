@@ -1,6 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
 import { RegisterComponent } from './register.component';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { MustMatchDirective } from 'src/app/directives/must-match.directive';
 
 describe('RegisterComponent', () => {
   let component: RegisterComponent;
@@ -8,7 +12,12 @@ describe('RegisterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ RegisterComponent ]
+      imports: [ 
+        RouterTestingModule, 
+        HttpClientTestingModule,
+        FormsModule
+      ],
+      declarations: [ RegisterComponent, NavbarComponent, MustMatchDirective ]
     })
     .compileComponents();
   });

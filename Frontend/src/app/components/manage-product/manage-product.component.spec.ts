@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
 import { ManageProductComponent } from './manage-product.component';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 describe('ManageProductComponent', () => {
   let component: ManageProductComponent;
@@ -8,7 +11,12 @@ describe('ManageProductComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ManageProductComponent ]
+      imports: [ 
+        RouterTestingModule, 
+        HttpClientTestingModule,
+        FormsModule
+      ],
+      declarations: [ ManageProductComponent, NavbarComponent ]
     })
     .compileComponents();
   });
