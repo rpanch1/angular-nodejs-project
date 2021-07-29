@@ -24,6 +24,8 @@ import { OrdersComponent } from './components/orders/orders.component';
 import { ManageUsersComponent } from './components/manage-users/manage-users.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
+import { ManageProductComponent } from './components/manage-product/manage-product.component';
+import { EditProductComponent } from './components/edit-product/edit-product.component';
 
 
 @NgModule({
@@ -44,6 +46,8 @@ import { ProductDetailsComponent } from './components/product-details/product-de
     ManageUsersComponent,
     AddUserComponent,
     ProductDetailsComponent,
+    ManageProductComponent,
+    EditProductComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,54 @@
+<app-navbar></app-navbar>
+<div class='container' style='margin-top: 50px;'>
+    <form #updateProduct='ngForm'>
+        <div class='form-group mb-3'>
+            <input type='text' class='form-control' placeholder='Name' 
+                    [(ngModel)]='products.name' name='name' #name='ngModel' 
+                    [ngClass]="{'is-invalid': name.touched && name.invalid}" required>
+
+            <div *ngIf='name.touched && name.invalid' class='invalid-feedback'>
+                <div *ngIf='name.errors!.required'>Name is required</div>
+            </div>
+        </div>
+
+        <div class='form-group mb-3'>
+            <input type='text' class='form-control' placeholder='Category' [(ngModel)]='products.category'
+                    name='category' #category='ngModel' 
+                    [ngClass]="{'is-invalid': category.touched && category.invalid}" required>
+
+            <div *ngIf='category.touched && category.invalid' class='invalid-feedback'>
+                <div *ngIf='category.errors!.required'>Category is required</div>
+            </div>
+        </div>
+
+        <div class='form-group mb-3'>
+            <input type='number' class='form-control' placeholder='Price' [(ngModel)]='products.price'
+                    name='price' #price='ngModel'
+                    [ngClass]="{'is-invalid': price.touched && price.invalid}" required>
+
+            <div *ngIf='price.touched && price.invalid' class='invalid-feedback'>
+                <div *ngIf='price.errors!.required'>Price is required</div>
+            </div>
+        </div>
+
+        <div class='form-group mb-3'>
+            <input type='number' class='form-control' placeholder='Discount Price' [(ngModel)]='products.discountPrice'
+                    name='discountPrice' #discountPrice='ngModel'>
+        </div>
+
+        <div class='form-group mb-3'>
+            <input type='text' class='form-control' placeholder='Description' [(ngModel)]='products.description'
+                    name='description' #description='ngModel'>
+        </div>
+
+        <div class='form-group mb-3'>
+            <input type='text' class='form-control' placeholder='Image URL' [(ngModel)]='products.image'
+                    name='image' #image='ngModel'>
+        </div>
+
+        <button type='submit' data-testid='add-new-button' class='btn btn-primary' 
+            [disabled]='updateProduct.form.invalid' (click) = "saveProductInfo()">Update Product</button>&nbsp;
+        <button type='reset' class='btn btn-primary'>Reset</button>
+    </form>
+</div>
+
