@@ -19,7 +19,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
-  {path: 'home', component: HomepageComponent, canActivate: [AuthGuardService]},
+  {path: 'home', component: HomepageComponent},
   {path: 'cart', component: CartComponent, canActivate: [AuthGuardService]},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
@@ -31,7 +31,7 @@ const routes: Routes = [
   {path: 'orders', component: OrdersComponent, canActivate: [AuthGuardService]},
   {path: 'admin/manage-users', component: ManageUsersComponent, canActivate: [AuthGuardService, AdminGuardService]},
   {path: 'admin/add-user', component: AddUserComponent, canActivate: [AuthGuardService, AdminGuardService]},
-  {path: 'product-details/:id', component: ProductDetailsComponent, canActivate: [AuthGuardService]},
+  {path: 'product-details/:id', component: ProductDetailsComponent},
 
 ];
 

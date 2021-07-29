@@ -81,4 +81,14 @@ export class AdminService {
     });
   }
 
+  // used by admin to update a user
+  updateUser(user: any): Observable<any>{
+    return this._http.put(`${this.basicUrl}/admin/update-user/${user._id}`, user, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      })
+    });
+  }
+
 }

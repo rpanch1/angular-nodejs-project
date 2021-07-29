@@ -9,6 +9,8 @@ import { AdminService } from 'src/app/services/admin.service';
 export class ManageUsersComponent implements OnInit {
 
   users = [];
+  edit = false;
+  editUser = {};
 
   constructor(private _adminService: AdminService) { }
 
@@ -27,6 +29,18 @@ export class ManageUsersComponent implements OnInit {
     }, (err) => {
       console.log(err)
     })
+  }
+
+  editButton(index: any){
+    this.edit = true;
+    this.editUser = this.users[index]
+  }
+
+  updateUser(){
+    this._adminService.updateUser(this.editUser).subscribe((res) => {
+      this.edit = false;
+      alert(res.message);
+    }, (err) => (console.log(err)))
   }
 
 }
