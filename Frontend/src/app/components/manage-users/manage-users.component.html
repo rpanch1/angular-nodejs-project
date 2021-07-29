@@ -9,36 +9,47 @@
 
 <body>
     <app-navbar></app-navbar>
-    <div class='container outerbox'>
-        <section class="jumbotron text-center">
-            <div class="container"><br>
-                <h2 class="jumbotron-heading">User List</h2>
-            </div>
-        </section>
-        <table class="table table-striped" style='margin-top: 30px;'>
-            <thead>
-                <tr>
-                    <th scope="col">First Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Role</th>
-                    <th> Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor='let user of users; let i=index'>
-                    <td>{{user.firstname}}</td>
-                    <td>{{user.lastname}}</td>
-                    <td>{{user.email}}</td>
-                    <td>{{user.role}}</td>
-                    <td>
-                        <button class="btn btn-danger" (click)='removeUser(user._id, i)'>Remove</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-    <app-add-user></app-add-user>
+<div class='container'>
+    <section class="jumbotron text-center">
+        <div class="container"><br>
+          <h2 class="jumbotron-heading">User List</h2>
+        </div>
+    </section>
+        <table class="table table-bordered" style='margin-top: 30px;'>
+        <thead>
+        <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Role</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor='let user of users; let i=index' >
+            <td>{{user.firstname}}</td>
+            <td>{{user.lastname}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.role}}</td>
+            <td>
+                <button class="btn btn-primary" (click)='editButton(i)'>Edit</button>&nbsp;
+                <button class="btn btn-danger" (click)='removeUser(user._id, i)'>Remove</button>
+            </td>
+        </tr>
+        <tr *ngIf='edit'>
+            <td><input type='text' [(ngModel)]='editUser.firstname'></td>
+            <td><input type='text' [(ngModel)]='editUser.lastname'></td>
+            <td><input type='text' [(ngModel)]='editUser.email'></td>
+            <td><input type='text' [(ngModel)]='editUser.role'></td>
+            <td>
+                <button class="btn btn-success" (click)='updateUser()'>Save</button>&nbsp;
+            </td>
+        </tr>
+
+        </tbody>
+    </table>
+</div>
+<app-add-user></app-add-user>
 
 </body>
 <footer>
