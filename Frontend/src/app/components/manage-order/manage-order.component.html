@@ -32,7 +32,7 @@
                         {{order.user.address}}
                     </td>
                     <td>
-                        <button class="btn btn-secondary dialog" *ngIf="!order.isDelivered" data-bs-toggle="modal"
+                        <button class="btn btn-primary dialog" *ngIf="!order.isDelivered" data-bs-toggle="modal"
                             (click)="getOrder(order)" data-bs-target="#processModal"
                             style="margin-right: 5px;">Process</button>
                         <button class="btn btn-danger dialog" data-bs-toggle="modal" (click)="getOrder(order)"
@@ -84,10 +84,6 @@
     </div>
 
 </body>
-<footer>
-    <div class="container">
-        <p>TCS ILP 2021</p>
-    </div>
-</footer>
+<app-footer></app-footer>
 
 </html>

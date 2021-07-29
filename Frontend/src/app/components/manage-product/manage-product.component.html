@@ -16,8 +16,7 @@
                 <h3>Manage Products</h3>
             </div>
             <div class="col">
-                <button class="btn btn-primary" routerLink="/admin/add-new-product">Add New
-                    Product</button>
+                <button class="btn btn-primary" routerLink="/admin/add-new-product">Add New Product</button>
             </div>
         </div>
         <div class="row">
@@ -35,16 +34,16 @@
                             <p>Price: {{product.price | currency: INR}}</p>
                         </td>
                         <td>
-                            <button class="btn btn-secondary"
-                                routerLink="/admin/products/{{product._id}}/edit">edit</button> |
-                            <button class="btn btn-danger" (click)="deleteProduct(product._id, i)">delete</button>
+                            <button class="btn btn-primary"
+                                routerLink="/admin/products/{{product._id}}/edit">Edit</button>&nbsp;
+                            <button class="btn btn-danger" (click)="deleteProduct(product._id, i)">Delete</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
         </div>
     </div>
-
+    <app-footer></app-footer>
 </body>
 
 </html>
