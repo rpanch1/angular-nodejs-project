@@ -32,7 +32,7 @@ export class AdminService {
   }
 
   // Delete Order as admin
-  deleteOrder(id): Observable<any> {
+  deleteOrder(id: any): Observable<any> {
     return this._http.delete(`${this.basicUrl}/orders/` + id, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
@@ -81,19 +81,14 @@ export class AdminService {
     });
   }
 
-
-  // used by admin to update a user
-  // updateUser(user: any): Observable<any>{
-  //   return this._http.put(`${this.basicUrl}/admin/update-user/${user._id}`, user, {
-
-    updateUser(user: any): Observable<any>{
-      return this._http.put(`${this.basicUrl}/admin/update-user/${user._id}`, user, {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        })
+  updateUser(user: any): Observable<any>{
+    return this._http.put(`${this.basicUrl}/admin/update-user/${user._id}`, user, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
       })
-    }
+    })
+  }
 
   manageProduct(): Observable<any>{
     return this._http.get(`${this.basicUrl}/products`);
