@@ -1,64 +1,83 @@
-<app-navbar></app-navbar>
-<div class='container' style='margin-top: 50px;'>
-    <h3 class='mb-3'>Register</h3>
-    <form #registrationForm='ngForm' (ngSubmit)='onSubmit()' [mustMatch]="['password', 'confirmpassword']">
-        
-        <div class='form-group mb-3'>
-            <input type='text' data-testid='register-first-name' class='form-control' placeholder='First Name' [(ngModel)]='newUser.firstname'
-                    name='firstname' #firstname='ngModel' 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <app-navbar></app-navbar>
+    <div class='container outerbox'>
+        <h3 class='mb-3'>Register</h3>
+        <form #registrationForm='ngForm' (ngSubmit)='onSubmit()' [mustMatch]="['password', 'confirmpassword']">
+
+            <div class='form-group mb-3'>
+                <input type='text' data-testid='register-first-name' class='form-control' placeholder='First Name'
+                    [(ngModel)]='newUser.firstname' name='firstname' #firstname='ngModel'
                     [ngClass]="{'is-invalid': firstname.touched && firstname.invalid}" required>
 
-            <div *ngIf='firstname.touched && firstname.invalid' class='invalid-feedback'>
-                <div *ngIf='firstname.errors!.required'>First Name is required</div>
+                <div *ngIf='firstname.touched && firstname.invalid' class='invalid-feedback'>
+                    <div *ngIf='firstname.errors!.required'>First Name is required</div>
+                </div>
             </div>
-        </div>
 
-        <div class='form-group mb-3'>
-            <input type='text' class='form-control' data-testid='register-last-name' placeholder='Last Name' [(ngModel)]='newUser.lastname'
-                    name='lastname' #lastname='ngModel' 
+            <div class='form-group mb-3'>
+                <input type='text' class='form-control' data-testid='register-last-name' placeholder='Last Name'
+                    [(ngModel)]='newUser.lastname' name='lastname' #lastname='ngModel'
                     [ngClass]="{'is-invalid': lastname.touched && lastname.invalid}" required>
 
-            <div *ngIf='lastname.touched && lastname.invalid' class='invalid-feedback'>
-                <div *ngIf='lastname.errors!.required'>Last Name is required</div>
+                <div *ngIf='lastname.touched && lastname.invalid' class='invalid-feedback'>
+                    <div *ngIf='lastname.errors!.required'>Last Name is required</div>
+                </div>
             </div>
-        </div>
 
-        <div class='form-group mb-3'>
-            <input type='email' class='form-control' data-testid='register-email' placeholder='Email' [(ngModel)]='newUser.email'
-                    name='email' #email='ngModel'
+            <div class='form-group mb-3'>
+                <input type='email' class='form-control' data-testid='register-email' placeholder='Email'
+                    [(ngModel)]='newUser.email' name='email' #email='ngModel'
                     [ngClass]="{'is-invalid': email.touched && email.invalid}" email required>
 
-            <div *ngIf='email.touched && email.invalid' class='invalid-feedback'>
-                <div *ngIf='email.errors!.required'>Email is required</div>
-                <div *ngIf='email.errors!.email'>Enter a valid email address</div>
+                <div *ngIf='email.touched && email.invalid' class='invalid-feedback'>
+                    <div *ngIf='email.errors!.required'>Email is required</div>
+                    <div *ngIf='email.errors!.email'>Enter a valid email address</div>
+                </div>
             </div>
-        </div>
 
-        <div class='form-group mb-3'>
-            <input type='password' class='form-control' data-testid='register-password' placeholder='Password' [(ngModel)]='newUser.password'
-                    name='password' #password='ngModel' minlength='6'
+            <div class='form-group mb-3'>
+                <input type='password' class='form-control' data-testid='register-password' placeholder='Password'
+                    [(ngModel)]='newUser.password' name='password' #password='ngModel' minlength='6'
                     [ngClass]="{'is-invalid': password.touched && password.invalid}" required>
 
-            <div *ngIf='password.touched && password.invalid' class='invalid-feedback'>
-                <div *ngIf='password.errors!.required'>Password is required</div>
-                <div *ngIf='password.errors!.minlength'>Password must be at least 6 digits</div>
+                <div *ngIf='password.touched && password.invalid' class='invalid-feedback'>
+                    <div *ngIf='password.errors!.required'>Password is required</div>
+                    <div *ngIf='password.errors!.minlength'>Password must be at least 6 digits</div>
+                </div>
             </div>
-        </div>
 
-        <div class='form-group mb-3'>
-            <input type='password' class='form-control' data-testid='register-confirm-password' 
+            <div class='form-group mb-3'>
+                <input type='password' class='form-control' data-testid='register-confirm-password'
                     placeholder='Confirm Password' name='confirmpassword' #confirmpassword='ngModel' ngModel
                     [ngClass]="{'is-invalid': confirmpassword.touched && confirmpassword.invalid}" required>
 
-            <div *ngIf='confirmpassword.touched && confirmpassword.invalid' class='invalid-feedback'>
-                <div *ngIf='confirmpassword.errors!.required'>Confirm Password is required</div>
-                <div *ngIf='confirmpassword.errors!.mustMatch'>Password must match</div>
+                <div *ngIf='confirmpassword.touched && confirmpassword.invalid' class='invalid-feedback'>
+                    <div *ngIf='confirmpassword.errors!.required'>Confirm Password is required</div>
+                    <div *ngIf='confirmpassword.errors!.mustMatch'>Password must match</div>
+                </div>
             </div>
-        </div>
 
-        <button type='submit' data-testid='register-submit' class='btn btn-primary' 
-            [disabled]='registrationForm.form.invalid'>Register</button>&nbsp;
-        <button type='reset' class='btn btn-primary'>Reset</button>
+            <button type='submit' data-testid='register-submit' class='btn btn-primary'
+                [disabled]='registrationForm.form.invalid'>Register</button>&nbsp;
+            <button type='reset' class='btn btn-primary'>Reset</button>
 
-    </form>
-</div>
+        </form>
+    </div>
+
+</body>
+<footer>
+    <div class="container">
+        <p>TCS ILP 2021</p>
+    </div>
+</footer>
+
+</html>

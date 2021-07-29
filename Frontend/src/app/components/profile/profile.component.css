@@ -1,9 +1,23 @@
+body {
+    background: lightslategray;
+    height: 100%;
+    min-height: 100vh;
+}
+html {
+    background-color: lightslategray;
+}
+
+footer {
+    background: lightslategray;
+    height: 100%;
+}
+
 .emp-profile{
     padding: 3%;
     margin-top: 3%;
     margin-bottom: 3%;
     border-radius: 0.5rem;
-    background: #fff;
+    background:white;
 }
 .profile-img{
     text-align: center;
@@ -28,8 +42,9 @@
     right: 0;
     top: 0;
 }
-.profile-head h5{
+.profile-head h4{
     color: #333;
+    font-weight: 700;
 }
 .profile-head h6{
     color: #0062cc;

@@ -25,7 +25,7 @@ export class CartComponent implements OnInit {
     this.cart.splice(index, 1);
     this.getTotal();
     this._userService.updateProfile({cart: this.cart}).subscribe((res) => {
-      alert('Product Removed');
+      console.log("Product Removed")
     }, (err) => {console.log(err)});
   }
 
