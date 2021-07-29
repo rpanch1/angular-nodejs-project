@@ -25,6 +25,7 @@ export class AddUserComponent implements OnInit {
   onSubmit(){
     this._adminService.addUser(this.newUser).subscribe((response) => {
       alert(response.message);
+      this._router.navigate(['/admin/manage-users']);
 
     }, (err) => {
       console.log(err.error.message);
