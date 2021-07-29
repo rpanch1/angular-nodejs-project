@@ -26,6 +26,7 @@ import { AddUserComponent } from './components/add-user/add-user.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ManageProductComponent } from './components/manage-product/manage-product.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
     ProductDetailsComponent,
     ManageProductComponent,
     EditProductComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
