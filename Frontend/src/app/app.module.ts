@@ -57,7 +57,7 @@ import { FooterComponent } from './components/footer/footer.component';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [UserService, AdminService, AuthGuardService, AdminGuardService],
+  providers: [UserService, AdminService, AuthGuardService, AdminGuardService, HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
