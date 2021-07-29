@@ -1,37 +1,61 @@
-<app-navbar></app-navbar>
-<main role="main">
+<!DOCTYPE html>
+<html lang="en">
 
-    <section class="jumbotron text-center">
-      <div class="container"><br>
-        <h1 class="jumbotron-heading">Shop 24x7</h1>
-      </div>
-    </section>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
 
-    <div class="album py-5 bg-light">
-      <div class="container">
-        <div class="row" >
-
-          <div class="col-md-4" *ngFor='let product of products'>
-            <div class="card mb-4 box-shadow">
-              <img class="card-img-top" data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail" alt="Thumbnail [100%x225]" style="height: 325px; width: 90%; display: block;" src={{product.image}} data-holder-rendered="true">
-              <div class="card-body">
-                <p class="card-text">{{product.description}}</p>
-                <ul class="list-group list-group-flush">
+<body>
+  <app-navbar></app-navbar>
+  
+    <div class="container outerbox">
+      <section class="jumbotron text-center">
+        <div class="container"><br>
+          <h1 class="jumbotron-heading">Shop 24x7</h1>
+        </div>
+      </section>
+  
+      <div class="album py-5">
+        <div class="container">
+          <div class="row">
+  
+            <div class="col-md-4" *ngFor='let product of products'>
+              <div class="card mb-4 box-shadow">
+                <img class="card-img-top"
+                  data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                  alt="Thumbnail [100%x225]" style="height: 325px; width: 90%; display: block;" src={{product.image}}
+                  data-holder-rendered="true">
+                <div class="card-body">
+                  <p class="card-text">{{product.description}}</p>
+                  <ul class="list-group list-group-flush">
                     <li class="list-group-item"><b>{{product.name}}</b></li>
                     <li class="list-group-item">Price: {{product.price | currency}}</li>
                     <li class="list-group-item">Discount Price: {{product.discountPrice | currency}}</li>
-                </ul>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <button type="button" class="btn  btn-success" (click)='addToCart(product)'>Add to Cart</button>
+                  </ul>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn  btn-success" (click)='addToCart(product)'>Add to Cart</button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
+  
           </div>
-
         </div>
       </div>
+  
     </div>
+    
 
-  </main>
+
+</body>
+<footer>
+  <div class="container">
+    <p>TCS ILP 2021</p>
+  </div>
+</footer>
+
+</html>
