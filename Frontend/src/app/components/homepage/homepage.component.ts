@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -11,7 +12,7 @@ export class HomepageComponent implements OnInit {
   products = []
   cart = [];
 
-  constructor(private _userService: UserService) { }
+  constructor(private _userService: UserService, private _router: Router) { }
 
   ngOnInit(): void {
     this._userService.getProducts().subscribe((res) => {
@@ -28,6 +29,10 @@ export class HomepageComponent implements OnInit {
     this._userService.updateProfile({cart: this.cart}).subscribe((res) => {
       alert('product added to cart');
     }, (err) => {console.log(err)})
+  }
+
+  productDetails(id: any){
+    this._router.navigate(['/product-details', id]);
   }
 
 }

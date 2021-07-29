@@ -1,0 +1,39 @@
+<app-navbar></app-navbar>
+<section class="jumbotron text-center">
+    <div class="container"><br>
+      <h2 class="jumbotron-heading">Product Details</h2>
+    </div>
+</section><br>
+<div class='panel-body' *ngIf='loadingDone' style='margin: 50px;'>
+    <div class='row'>
+        <div class='col-md-6'>
+            <div class='row'>
+                <div class='col-md-3'><b>Name:</b></div>
+                <div class='col-md-6'><h6>{{product.name}}</h6></div>
+            </div>
+            <div class='row'>
+                <div class='col-md-3'><b>Category:</b></div>
+                <div class='col-md-6'>{{product.category}}</div>
+            </div>
+            <div class='row'>
+                <div class='col-md-3'><b>Description:</b></div>
+                <div class='col-md-6'>{{product.description}}</div>
+            </div>
+            <div class='row'>
+                <div class='col-md-3'><b>Price:</b></div>
+                <div class='col-md-6'>{{product.price | currency}}</div>
+            </div>
+            <div class='row'>
+                <div class='col-md-3'><b>Discount Price:</b></div>
+                <div class='col-md-6'>{{product.discountPrice | currency}}</div>
+            </div>
+        </div>
+        <div class='col-md-6'>
+            <img class='center-block img-responsive' [style.width.px]='200' [style.margin.px]='2' src={{product.image}}>
+        </div>
+        <div class='container'>
+            <a style='width:100px' class="btn btn-primary" routerLink="/home">Go Back</a> 
+        </div>
+    </div>
+</div>
+

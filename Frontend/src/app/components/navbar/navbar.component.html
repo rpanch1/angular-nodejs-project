@@ -9,7 +9,9 @@
             <li *ngIf='isLoggedIn()' class='nav-item active'><a class='nav-link' routerLink='/profile'>Profile</a></li>
             <li *ngIf='isLoggedIn()' class='nav-item active'><a class='nav-link' routerLink='/orders'>Orders</a></li>
             <li *ngIf='isLoggedIn() && isAdmin()' class='nav-item active'><a class='nav-link' routerLink='/admin/add-new-product'>Add Product</a></li>
+            <li *ngIf='isLoggedIn() && isAdmin()' class='nav-item active'><a class='nav-link' routerLink='/admin/manage-users'>Manage Users</a></li>
             <li *ngIf='isLoggedIn()' class='nav-item active'><a class='nav-link' routerLink='/login'>Logout</a></li>
+
         </ul>
     </div>
 </nav>
