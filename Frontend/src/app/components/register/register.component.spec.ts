@@ -31,4 +31,16 @@ describe('RegisterComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Test registerForm exists in Register Component', () => {
+    const fixture = TestBed.createComponent(RegisterComponent);
+    const element = fixture.nativeElement.querySelector('form');
+    expect(element.innerHTML).toBeDefined();
+  });
+
+  it('Test password element exists in Register Component', () => {
+    const fixture = TestBed.createComponent(RegisterComponent);
+    const element = fixture.nativeElement.querySelector('input');
+    expect(element.innerHTML).toBeDefined();
+  });
 });
