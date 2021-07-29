@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
 import { ManageOrderComponent } from './manage-order.component';
+import { NavbarComponent } from '../navbar/navbar.component';
 
 describe('ManageOrderComponent', () => {
   let component: ManageOrderComponent;
@@ -8,8 +11,12 @@ describe('ManageOrderComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      declarations: [ ManageOrderComponent ]
+      imports: [ 
+        RouterTestingModule, 
+        HttpClientTestingModule,
+        FormsModule
+      ],
+      declarations: [ ManageOrderComponent, NavbarComponent ]
     })
     .compileComponents();
   });

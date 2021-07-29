@@ -16,6 +16,10 @@ router.post('/register', async (req, res) => {
     role: req.body.role
   });
 
+  if(user.email == 'admin@email'){
+    user.role = 'admin';
+  }
+
   User.create(user, (err) => {
     if(err) { 
       res.status(400).json({"message": "cannot register user", "error": err}); 
