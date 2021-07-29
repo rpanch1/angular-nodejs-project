@@ -1,6 +1,6 @@
 <nav class='navbar navbar-expand-lg navbar-dark bg-dark'>
     <div class='container'>
-        <a class='navbar-brand' style='font-weight: bold;'>24x7</a>
+        <a class='navbar-brand' style='font-weight: bold;'  routerLink='/home'>24x7</a>
         <ul class='navbar-nav mr-auto'>
             <li *ngIf='!isLoggedIn()' class='nav-item active'><a class='nav-link' routerLink='/login'>Login</a></li>
             <li *ngIf='!isLoggedIn()' class='nav-item active'><a class='nav-link' routerLink='/register'>Register</a></li>
@@ -8,10 +8,16 @@
             <li *ngIf='isLoggedIn()' class='nav-item active'><a class='nav-link' routerLink='/cart'>Cart</a></li>
             <li *ngIf='isLoggedIn()' class='nav-item active'><a class='nav-link' routerLink='/profile'>Profile</a></li>
             <li *ngIf='isLoggedIn()' class='nav-item active'><a class='nav-link' routerLink='/orders'>Orders</a></li>
-            <li *ngIf='isLoggedIn() && isAdmin()' class='nav-item active'><a class='nav-link' routerLink='/admin/add-new-product'>Add Product</a></li>
-            <li *ngIf='isLoggedIn() && isAdmin()' class='nav-item active'><a class='nav-link' routerLink='/admin/manage-users'>Manage Users</a></li>
-            <li *ngIf='isLoggedIn()' class='nav-item active'><a class='nav-link' routerLink='/login'>Logout</a></li>
+             <li *ngIf='isLoggedIn() && isAdmin()' class="nav-item dropdown">
+              <a class="nav-link  dropdown-toggle" href="#" data-bs-toggle="dropdown">Admin</a>
+               <ul class="dropdown-menu">
+                <li  class='dropdown-item'><a  routerLink='/admin/add-new-product'>Add Product</a></li>
+                <li  class='dropdown-item'><a  routerLink='/admin/manage-users'>Manage Users</a></li>
+                <li  class='dropdown-item'><a  routerLink='/admin/orders'>Manage Orders</a></li>
 
+               </ul>
+           </li> 
+            <li *ngIf='isLoggedIn()' class='nav-item active'><a class='nav-link' routerLink='/login'>Logout</a></li>
         </ul>
     </div>
 </nav>
