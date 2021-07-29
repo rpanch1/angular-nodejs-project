@@ -1,7 +1,3 @@
-h4 {
-    font-weight: 600;
-}
-
 body {
     background: lightslategray;
     height: 100%;
@@ -22,4 +18,12 @@ footer {
     border-radius: 10px;
     margin-bottom: 5%;
     padding: 3%;
+}
+
+.innerbox {
+    margin-top: 3%;
+}
+
+th {
+    font-size: larger;
 }
