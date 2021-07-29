@@ -20,7 +20,7 @@ export class ProductDetailsComponent implements OnInit {
 
   loadingDone: Boolean = false;
 
-  constructor(private _userService: UserService, private _router: Router, private route: ActivatedRoute) { }
+  constructor(private _userService: UserService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];

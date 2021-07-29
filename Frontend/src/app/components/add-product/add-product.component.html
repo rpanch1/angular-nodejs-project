@@ -16,6 +16,7 @@
             <form #addProductForm='ngForm' (ngSubmit)='onSubmit()'>
 
                 <div class='form-group mb-3'>
+                    <label for="name">Name</label>
                     <input type='text' class='form-control' placeholder='Name' [(ngModel)]='newProduct.name' name='name'
                         #name='ngModel' [ngClass]="{'is-invalid': name.touched && name.invalid}" required>
 
@@ -25,6 +26,7 @@
                 </div>
 
                 <div class='form-group mb-3'>
+                    <label for="category">Category</label>
                     <input type='text' class='form-control' placeholder='Category' [(ngModel)]='newProduct.category'
                         name='category' #category='ngModel'
                         [ngClass]="{'is-invalid': category.touched && category.invalid}" required>
@@ -35,6 +37,7 @@
                 </div>
 
                 <div class='form-group mb-3'>
+                    <label for="price">Price</label>
                     <input type='number' class='form-control' placeholder='Price' [(ngModel)]='newProduct.price'
                         name='price' #price='ngModel' [ngClass]="{'is-invalid': price.touched && price.invalid}"
                         required>
@@ -45,16 +48,19 @@
                 </div>
 
                 <div class='form-group mb-3'>
+                    <label for="discountPrice">Discount Price</label>
                     <input type='number' class='form-control' placeholder='Discount Price'
                         [(ngModel)]='newProduct.discountPrice' name='discountPrice' #discountPrice='ngModel'>
                 </div>
 
                 <div class='form-group mb-3'>
+                    <label for="description">Description</label>
                     <input type='text' class='form-control' placeholder='Description'
                         [(ngModel)]='newProduct.description' name='description' #description='ngModel'>
                 </div>
 
                 <div class='form-group mb-3'>
+                    <label for="image">Image URL</label>
                     <input type='text' class='form-control' placeholder='Image URL' [(ngModel)]='newProduct.image'
                         name='image' #image='ngModel'>
                 </div>
