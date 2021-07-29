@@ -1,39 +1,69 @@
-<app-navbar></app-navbar>
-<section class="jumbotron text-center">
-    <div class="container"><br>
-      <h2 class="jumbotron-heading">Product Details</h2>
-    </div>
-</section><br>
-<div class='panel-body' *ngIf='loadingDone' style='margin: 50px;'>
-    <div class='row'>
-        <div class='col-md-6'>
-            <div class='row'>
-                <div class='col-md-3'><b>Name:</b></div>
-                <div class='col-md-6'><h6>{{product.name}}</h6></div>
-            </div>
-            <div class='row'>
-                <div class='col-md-3'><b>Category:</b></div>
-                <div class='col-md-6'>{{product.category}}</div>
-            </div>
-            <div class='row'>
-                <div class='col-md-3'><b>Description:</b></div>
-                <div class='col-md-6'>{{product.description}}</div>
-            </div>
-            <div class='row'>
-                <div class='col-md-3'><b>Price:</b></div>
-                <div class='col-md-6'>{{product.price | currency}}</div>
-            </div>
-            <div class='row'>
-                <div class='col-md-3'><b>Discount Price:</b></div>
-                <div class='col-md-6'>{{product.discountPrice | currency}}</div>
-            </div>
-        </div>
-        <div class='col-md-6'>
-            <img class='center-block img-responsive' [style.width.px]='200' [style.margin.px]='2' src={{product.image}}>
-        </div>
-        <div class='container'>
-            <a style='width:100px' class="btn btn-primary" routerLink="/home">Go Back</a> 
-        </div>
-    </div>
-</div>
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <app-navbar></app-navbar>
+    <div class="container outerbox">
+        <section class="jumbotron text-center">
+            <div class="container"><br>
+                <h2 class="jumbotron-heading">Product Details</h2>
+            </div>
+        </section><br>
+        <div class='panel-body' *ngIf='loadingDone' style='margin: 50px;'>
+            <div class='row'>
+                <table class="table table-striped" style="float: left;">
+                    <tr>
+                        <td class="img">
+                            <div class='col-md-6' style="float: left;">
+                                <img class='center-block img-responsive' [style.width.px]='200' [style.margin.px]='2'
+                                    src={{product.image}}>
+                            </div>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <th>Name:</th>
+                                    <td class="inf">{{product.name}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Category:</th>
+                                    <td class="inf">{{product.category}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Description:</th>
+                                    <td class="inf">{{product.description}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Price:</th>
+                                    <td class="inf">{{product.price | currency}}</td>
+                                </tr>
+                                <tr>
+                                    <th>Discount Price:</th>
+                                    <td class="inf">{{product.discountPrice | currency}}</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class='container'>
+                    <a style='width:100px' class="btn btn-primary" routerLink="/home">Go Back</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<footer>
+    <div class="container">
+        <p>TCS ILP 2021</p>
+    </div>
+</footer>
+
+</html>
