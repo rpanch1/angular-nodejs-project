@@ -53,7 +53,7 @@ import { EditProductComponent } from './components/edit-product/edit-product.com
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [UserService, AdminService, AuthGuardService, AdminGuardService],
   bootstrap: [AppComponent]
