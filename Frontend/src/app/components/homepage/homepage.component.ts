@@ -19,9 +19,11 @@ export class HomepageComponent implements OnInit {
       this.products = res;
     }, (err) => (console.log(err)));
 
-    this._userService.getProfile().subscribe((res) => {
-      this.cart = res.profile.cart;
-    }, (err) => (console.log(err)));
+    if(this.isLoggedIn()){
+      this._userService.getProfile().subscribe((res) => {
+        this.cart = res.profile.cart;
+      }, (err) => (console.log(err)));
+    }
   }
 
   addToCart(product: any) {
@@ -33,6 +35,15 @@ export class HomepageComponent implements OnInit {
 
   productDetails(id: any){
     this._router.navigate(['/product-details', id]);
+  }
+
+  isLoggedIn(): boolean{
+    if(localStorage.getItem('token') != null){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 
 }
