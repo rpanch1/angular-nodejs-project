@@ -21,7 +21,4 @@ export class OrdersComponent implements OnInit {
     }, (err) => console.log(err))
   }
 
-  removeOrder(){
-    
-  }
 }
