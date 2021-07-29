@@ -25,6 +25,7 @@ export class ManageProductComponent implements OnInit {
     this._adminService.removeProduct(id).subscribe((response) => {
       this.products.splice(index, 1);
       alert("Product deleted successfully!");
+      window.location.reload();
     }, (error) => {
       console.log(error);
     })

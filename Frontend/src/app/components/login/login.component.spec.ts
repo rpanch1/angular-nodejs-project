@@ -30,4 +30,16 @@ describe('LoginComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('Test loginForm exists in Login Component', () => {
+    const fixture = TestBed.createComponent(LoginComponent);
+    const element = fixture.nativeElement.querySelector('form');
+    expect(element.innerHTML).toBeDefined();
+  });
+
+  it('Test email element exists Login Component', () => {
+    const fixture = TestBed.createComponent(LoginComponent);
+    const element = fixture.nativeElement.querySelector('input');
+    expect(element.innerHTML).toBeDefined();
+  });
 });
