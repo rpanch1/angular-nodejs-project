@@ -195,4 +195,29 @@ router.post('/add-user', verifyToken, (req, res) => {
     })
 });
 
+// PUT /api/v1/admin/update-user/:id
+router.put('/update-user/:id', verifyToken, (req, res) => {
+
+    jwt.verify(req.token, 'secretkey', (err, data) => {
+        if(err) {
+            res.status(403).json({"message": "invalid token"});
+        }
+        else if(data.user.role == 'normal'){
+            res.status(403).json({"message": "user is not admin"});
+        }
+        else {
+            User.findByIdAndUpdate(req.params.id, req.body, (err) => {
+                if(err) { 
+                  res.status(400).json({"message": "cannot update user", "error": err}); 
+                } else{
+                  res.status(201).json({
+                    "status": "success",
+                    "message": "user updated successfully"
+                  })
+                }
+            })
+        }
+    })
+});
+
 module.exports = router;

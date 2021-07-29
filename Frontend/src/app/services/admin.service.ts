@@ -81,6 +81,20 @@ export class AdminService {
     });
   }
 
+
+  // used by admin to update a user
+  // updateUser(user: any): Observable<any>{
+  //   return this._http.put(`${this.basicUrl}/admin/update-user/${user._id}`, user, {
+
+    updateUser(user: any): Observable<any>{
+      return this._http.put(`${this.basicUrl}/admin/update-user/${user._id}`, user, {
+        headers: new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        })
+      })
+    }
+
   manageProduct(): Observable<any>{
     return this._http.get(`${this.basicUrl}/products`);
   }
@@ -96,12 +110,14 @@ export class AdminService {
 
   productInfo(id: String): Observable<any> {
     return this._http.get(`${this.basicUrl}/products/${id}`, {
+
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${localStorage.getItem('token')}`
       })
     });
   }
+
 
   removeProduct(id: String): Observable<any> {
     return this._http.delete(`${this.basicUrl}/admin/products/${id}`, {

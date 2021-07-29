@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+  
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,9 +32,19 @@
                     <td>{{user.email}}</td>
                     <td>{{user.role}}</td>
                     <td>
+                        <button class="btn btn-primary" (click)='editButton(i)'>Edit</button>&nbsp;
                         <button class="btn btn-danger" (click)='removeUser(user._id, i)'>Remove</button>
                     </td>
                 </tr>
+               <tr *ngIf='edit'>
+                  <td><input type='text' [(ngModel)]='editUser.firstname'></td>
+                  <td><input type='text' [(ngModel)]='editUser.lastname'></td>
+                  <td><input type='text' [(ngModel)]='editUser.email'></td>
+                  <td><input type='text' [(ngModel)]='editUser.role'></td>
+                  <td>
+                      <button class="btn btn-success" (click)='updateUser()'>Save</button>&nbsp;
+                  </td>
+               </tr>
             </tbody>
         </table>
     </div>

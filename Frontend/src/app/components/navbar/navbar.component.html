@@ -2,9 +2,9 @@
     <div class='container'>
         <a class='navbar-brand' style='font-weight: bold;'  routerLink='/home'>24x7</a>
         <ul class='navbar-nav mr-auto'>
+            <li class='nav-item active'><a class='nav-link' routerLink='/home'>Home</a></li>
             <li *ngIf='!isLoggedIn()' class='nav-item active'><a class='nav-link' routerLink='/login'>Login</a></li>
             <li *ngIf='!isLoggedIn()' class='nav-item active'><a class='nav-link' routerLink='/register'>Register</a></li>
-            <li *ngIf='isLoggedIn()' class='nav-item active'><a class='nav-link' routerLink='/home'>Home</a></li>
             <li *ngIf='isLoggedIn()' class='nav-item active'><a class='nav-link' routerLink='/cart'>Cart</a></li>
             <li *ngIf='isLoggedIn()' class='nav-item active'><a class='nav-link' routerLink='/profile'>Profile</a></li>
             <li *ngIf='isLoggedIn()' class='nav-item active'><a class='nav-link' routerLink='/orders'>Orders</a></li>
@@ -14,7 +14,6 @@
                 <li  class='dropdown-item'><a  routerLink='/admin/products'>Manage Products</a></li>
                 <li  class='dropdown-item'><a  routerLink='/admin/manage-users'>Manage Users</a></li>
                 <li  class='dropdown-item'><a  routerLink='/admin/orders'>Manage Orders</a></li>
-
                </ul>
            </li> 
             <li *ngIf='isLoggedIn()' class='nav-item active'><a class='nav-link' routerLink='/login'>Logout</a></li>
