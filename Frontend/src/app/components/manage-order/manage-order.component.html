@@ -22,13 +22,57 @@
             </thead>
             <tbody>
                 <tr *ngFor="let order of orderList" data-testid="manage-order-row">
-                    <td [ngStyle]="{'color': order.isDelivered == true ? 'green' : ''}" >{{order._id}}</td>
+                    <td [ngStyle]="{'color': order.isDelivered == true ? 'green' : ''}">{{order._id}}</td>
                     <td>
-                        <a>Process | Delete</a>
+                        <button class="btn btn-secondary dialog" *ngIf="!order.isDelivered" data-bs-toggle="modal"
+                            (click)="getOrder(order)" data-bs-target="#processModal"
+                            style="margin-right: 5px;">Process</button>
+                        <button class="btn btn-danger dialog" data-bs-toggle="modal" (click)="getOrder(order)"
+                            data-bs-target="#deleteModal">Delete</button>
                     </td>
                 </tr>
             </tbody>
         </table>
+    </div>
+
+    <!-- Process Order Confirmation Modal -->
+    <div class="modal fade" id="processModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="processModalLabel">Process Order</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want mark order as processed?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#processModal"
+                        (click)="processOrder()">Process</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Order Confirmation Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteModalLabel">Delete Order</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete order?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                        (click)="deleteOrder()" data-bs-target="#deleteModal">Delete</button>
+                </div>
+            </div>
+        </div>
     </div>
 
 </body>

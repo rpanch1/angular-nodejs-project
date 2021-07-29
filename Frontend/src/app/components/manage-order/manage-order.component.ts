@@ -30,15 +30,37 @@ export class ManageOrderComponent implements OnInit {
       "isDelivered": false,
     }
   ];
+  order;
 
   constructor(private _adminService: AdminService) { }
 
   ngOnInit(): void {
-    // this._adminService.getOrders().subscribe((result) => {
-    //   console.log(result);
-    //   this.orderList = result.orders;
-    // });
-    this.orderList.sort((x,y) => {return (x === y)? 0 : x? 1 : -1;})
+    this._adminService.getOrders().subscribe((result) => {
+      console.log(result);
+      this.orderList = result.orders;
+      this.orderList.sort((x, y) => (x.isDelivered === y.isDelivered) ? 0 : x.isDelivered ? 1 : -1);
+      console.log(this.orderList);
+    });
+
+  }
+
+  processOrder() {
+    this.order.isDelivered = true;
+    console.log("Processing Order: " + this.order._id);
+    this._adminService.processOrder(this.order).subscribe((result) => {
+      console.log(result);
+    })
+  }
+
+  deleteOrder() {
+    console.log("Delete Order: " + this.order._id);
+    this._adminService.deleteOrder(this.order._id).subscribe((result) => {
+      console.log(result);
+    });
+  }
+
+  getOrder(order) {
+    this.order = order;
   }
 
 }
