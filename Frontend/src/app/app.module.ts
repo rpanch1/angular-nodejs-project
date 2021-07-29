@@ -21,6 +21,8 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ManageOrderComponent } from './components/manage-order/manage-order.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { ManageUsersComponent } from './components/manage-users/manage-users.component';
+import { AddUserComponent } from './components/add-user/add-user.component';
 
 
 @NgModule({
@@ -38,6 +40,8 @@ import { OrdersComponent } from './components/orders/orders.component';
     CartComponent,
     ManageOrderComponent,
     OrdersComponent,
+    ManageUsersComponent,
+    AddUserComponent,
   ],
   imports: [
     BrowserModule,

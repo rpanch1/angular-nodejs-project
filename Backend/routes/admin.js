@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var jwt = require('jsonwebtoken');
 var Product = require('../models/product.model');
+var User = require('../models/user.model');
+var bcrypt = require('bcrypt');
 
 // Used for getting the token from the Header
 const verifyToken = (req, res, next) => {
@@ -105,4 +107,92 @@ router.put('/products/:id', verifyToken, (req, res) => {
         }
     })
 });
+
+// GET /api/v1/admin/users
+router.get('/users', verifyToken, (req, res) => {
+
+    jwt.verify(req.token, 'secretkey', (err, data) => {
+        if(err) {
+            res.status(403).json({"message": "invalid token", "error": err});
+        }
+        else if(data.user.role == 'normal'){
+            res.status(403).json({"message": "user is not admin"});
+        }
+        else {
+            User.find((err, users) => {
+                if(err){
+                    res.status(403).json({"error": err});
+                }
+                else{
+                    res.json({
+                        "message": "success",
+                        "users": users
+                    })
+                }
+            })
+        }
+    })
+});
+
+// DELETE /api/v1/admin/users/:id
+router.delete('/users/:id', verifyToken, (req, res) => {
+
+    jwt.verify(req.token, 'secretkey', (err, data) => {
+        if(err) {
+            res.status(403).json({"message": "invalid token", "error": err});
+        }
+        else if(data.user.role == 'normal'){
+            res.status(403).json({"message": "user is not admin"});
+        }
+        else {
+            
+            User.findByIdAndRemove(req.params.id, (err) => {
+                if(err) { 
+                  res.status(400).json({"message": "cannot delete user", "error": err}); 
+                } else{
+                  res.status(201).json({
+                    "status": "success",
+                    "message": "user deleted successfully"
+                  })
+                }
+            })
+        }
+    })
+});
+
+// POST /api/v1/admin/add-user
+router.post('/add-user', verifyToken, (req, res) => {
+
+    jwt.verify(req.token, 'secretkey', async (err, data) => {
+        if(err) {
+            res.status(403).json({"message": "invalid token", "error": err});
+        }
+        else if(data.user.role == 'normal'){
+            res.status(403).json({"message": "user is not admin"});
+        }
+        else {
+            const hashedPassword = await bcrypt.hash(req.body.password, 10);
+            var user = new User({
+                firstname: req.body.firstname,
+                lastname: req.body.lastname,
+                password: hashedPassword,
+                email: req.body.email,
+                role: req.body.role
+            });
+            User.create(user, (err) => {
+                if(err) { 
+                  res.status(400).json({"message": "cannot register user", "error": err}); 
+                } else{
+                  
+                  res.status(201).json({
+                    "status": "success",
+                    "message": "user created successfully"
+                  })
+                }
+            })
+            
+        }
+    })
+});
+
 module.exports = router;
