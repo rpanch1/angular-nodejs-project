@@ -1,0 +1,23 @@
+<app-navbar></app-navbar>
+
+<div class = "container">
+    <div class = "row">
+        <div class = "col">
+            <h4>Manage Products  <button class = "btn btn-primary" routerLink = "/admin/add-new-product">Add New Product</button></h4>
+        </div>
+        <table class = "table table-hover" cellpadding="10" cellspacing="0" border="1">
+            <tbody>
+                <tr *ngFor = 'let product of products'>
+                    <td>
+                        <h5>{{product.name}}</h5>
+                        <p>Price: {{product.price | currency: INR}}</p>
+                    </td>
+                    <td>
+                        <button class = "btn btn-secondary" routerLink = "/admin/products/{{product._id}}/edit">edit</button> |
+                        <button class = "btn btn-danger" (click) = "deleteProduct(product._id, i)">delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

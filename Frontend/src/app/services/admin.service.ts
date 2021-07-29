@@ -81,14 +81,43 @@ export class AdminService {
     });
   }
 
+
   // used by admin to update a user
   updateUser(user: any): Observable<any>{
     return this._http.put(`${this.basicUrl}/admin/update-user/${user._id}`, user, {
+
+  manageProduct(): Observable<any>{
+    return this._http.get(`${this.basicUrl}/products`);
+  }
+
+  updateProduct(id: String, product: any): Observable<any> {
+    return this._http.put(`${this.basicUrl}/admin/products/${id}`, product, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${localStorage.getItem('token')}`
       })
     });
   }
+
+  productInfo(id: String): Observable<any> {
+    return this._http.get(`${this.basicUrl}/products/${id}`, {
+
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      })
+    });
+  }
+
+
+  removeProduct(id: String): Observable<any> {
+    return this._http.delete(`${this.basicUrl}/admin/products/${id}`, {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${localStorage.getItem('token')}`
+      })
+    });
+  }
+
 
 }

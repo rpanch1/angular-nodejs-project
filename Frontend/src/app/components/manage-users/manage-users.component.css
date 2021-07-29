@@ -1,0 +1,21 @@
+body {
+    background: lightslategray;
+    height: 100%;
+    min-height: 100vh;
+}
+html {
+    background-color: lightslategray;
+}
+
+footer {
+    background: lightslategray;
+    height: 100%;
+}
+
+.outerbox {
+    margin-top: 3%;
+    background-color:white;
+    border-radius: 10px;
+    margin-bottom: 5%;
+    padding: 3%;
+}
