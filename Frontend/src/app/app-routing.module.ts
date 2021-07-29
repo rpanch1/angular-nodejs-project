@@ -14,6 +14,7 @@ import { ManageOrderComponent } from './components/manage-order/manage-order.com
 import { OrdersComponent } from './components/orders/orders.component';
 import { ManageUsersComponent } from './components/manage-users/manage-users.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
+import { ProductDetailsComponent } from './components/product-details/product-details.component';
 
 
 const routes: Routes = [
@@ -30,6 +31,7 @@ const routes: Routes = [
   {path: 'orders', component: OrdersComponent, canActivate: [AuthGuardService]},
   {path: 'admin/manage-users', component: ManageUsersComponent, canActivate: [AuthGuardService, AdminGuardService]},
   {path: 'admin/add-user', component: AddUserComponent, canActivate: [AuthGuardService, AdminGuardService]},
+  {path: 'product-details/:id', component: ProductDetailsComponent, canActivate: [AuthGuardService]},
 
 ];
 

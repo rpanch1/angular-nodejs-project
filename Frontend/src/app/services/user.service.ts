@@ -92,4 +92,9 @@ export class UserService {
       })
     });
   }
+
+  // used on product-details
+  getProductDetails(id: any): Observable<any>{
+    return this._http.get(`${this.basicUrl}/products/${id}`);
+  }
 }
