@@ -17,11 +17,13 @@ import { AddUserComponent } from './components/add-user/add-user.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ManageProductComponent } from './components/manage-product/manage-product.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
+import { CategoryComponent } from './components/category/category.component';
 
 
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomepageComponent},
+  {path: 'category', component: CategoryComponent},
   {path: 'cart', component: CartComponent, canActivate: [AuthGuardService]},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
