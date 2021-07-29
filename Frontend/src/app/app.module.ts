@@ -59,7 +59,7 @@ import { CategoryComponent } from './components/category/category.component';
     HttpClientModule,
     FormsModule,
   ],
-  providers: [UserService, AdminService, AuthGuardService, AdminGuardService],
+  providers: [UserService, AdminService, AuthGuardService, AdminGuardService, HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
