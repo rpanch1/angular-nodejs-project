@@ -49,6 +49,7 @@ export class ManageOrderComponent implements OnInit {
     console.log("Processing Order: " + this.order._id);
     this._adminService.processOrder(this.order).subscribe((result) => {
       console.log(result);
+      window.location.reload();
     })
   }
 
@@ -56,6 +57,7 @@ export class ManageOrderComponent implements OnInit {
     console.log("Delete Order: " + this.order._id);
     this._adminService.deleteOrder(this.order._id).subscribe((result) => {
       console.log(result);
+      window.location.reload();
     });
   }
 
