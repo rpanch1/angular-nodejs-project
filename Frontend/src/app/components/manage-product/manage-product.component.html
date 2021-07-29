@@ -1,23 +1,50 @@
-<app-navbar></app-navbar>
+<!DOCTYPE html>
+<html lang="en">
 
-<div class = "container">
-    <div class = "row">
-        <div class = "col">
-            <h4>Manage Products  <button class = "btn btn-primary" routerLink = "/admin/add-new-product">Add New Product</button></h4>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <app-navbar></app-navbar>
+
+    <div class="container outerbox">
+        <div class="row">
+            <div class="col">
+                <h3>Manage Products</h3>
+            </div>
+            <div class="col">
+                <button class="btn btn-primary" routerLink="/admin/add-new-product">Add New
+                    Product</button>
+            </div>
         </div>
-        <table class = "table table-hover" cellpadding="10" cellspacing="0" border="1">
-            <tbody>
-                <tr *ngFor = 'let product of products'>
-                    <td>
-                        <h5>{{product.name}}</h5>
-                        <p>Price: {{product.price | currency: INR}}</p>
-                    </td>
-                    <td>
-                        <button class = "btn btn-secondary" routerLink = "/admin/products/{{product._id}}/edit">edit</button> |
-                        <button class = "btn btn-danger" (click) = "deleteProduct(product._id, i)">delete</button>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="row">
+            <table class="table innerbox table-hover">
+                <thead>
+                    <tr>
+                        <th>Product Info</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor='let product of products'>
+                        <td>
+                            <h5>{{product.name}}</h5>
+                            <p>Price: {{product.price | currency: INR}}</p>
+                        </td>
+                        <td>
+                            <button class="btn btn-secondary"
+                                routerLink="/admin/products/{{product._id}}/edit">edit</button> |
+                            <button class="btn btn-danger" (click)="deleteProduct(product._id, i)">delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
-</div>
+
+</body>
+
+</html>

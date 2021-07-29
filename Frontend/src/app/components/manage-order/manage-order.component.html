@@ -11,18 +11,26 @@
 <body>
     <app-navbar></app-navbar>
     <div class="container outerbox">
-        <h4>Manage Orders</h4>
+        <h3>Manage Orders</h3>
 
-        <table class="table">
+        <table class="table innerbox">
             <thead>
                 <tr>
                     <th>Order Info</th>
+                    <th>Address</th>
                     <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let order of orderList" data-testid="manage-order-row">
-                    <td [ngStyle]="{'color': order.isDelivered == true ? 'green' : ''}">{{order._id}}</td>
+                <tr *ngFor="let order of orderList" [ngStyle]="{'color': order.isDelivered == true ? 'green' : ''}"
+                    data-testid="manage-order-row">
+                    <td>
+                        {{order._id}}
+                        <p>{{order.user.email}}</p>
+                    </td>
+                    <td>
+                        {{order.user.address}}
+                    </td>
                     <td>
                         <button class="btn btn-secondary dialog" *ngIf="!order.isDelivered" data-bs-toggle="modal"
                             (click)="getOrder(order)" data-bs-target="#processModal"
@@ -68,8 +76,8 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                        (click)="deleteOrder()" data-bs-target="#deleteModal">Delete</button>
+                    <button type="button" class="btn btn-danger" data-bs-toggle="modal" (click)="deleteOrder()"
+                        data-bs-target="#deleteModal">Delete</button>
                 </div>
             </div>
         </div>
