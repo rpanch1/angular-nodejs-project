@@ -40,10 +40,13 @@ export class ProductDetailsComponent implements OnInit {
           this.loadingDone = true;
         })
       }, (err) => (console.log(err)))
-      this._userService.getProfile().subscribe((res) => {
-        // console.log(res.profile.cart);
-        this.cart = res.profile.cart;
-      })
+      if(this.isLoggedIn()){
+        this._userService.getProfile().subscribe((res) => {
+          // console.log(res.profile.cart);
+          this.cart = res.profile.cart;
+        })
+      }
+      
       // Work around to make sure user starts at the top of the page
       window.scrollTo(0,0);
     });

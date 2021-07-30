@@ -57,7 +57,7 @@
 
                 <div class='container'>
                     <a style='width:100px' class="btn btn-primary" routerLink="/home">Go Back</a>
-                    <a style="float:right;" class="btn btn-success" (click)="addToCart(product)">Add to Cart</a>
+                    <button [disabled]='!isLoggedIn()' style="float:right;" class="btn btn-success" (click)="addToCart(product)">Add to Cart</button>
                     <!-- <a style = 'width: 100px'><button class = "btn btn-success" [disabled]='!isLoggedIn()' routerLink = "/checkout">Buy Now</button></a> -->
                 </div>
             </div>
