@@ -13,11 +13,19 @@ footer {
 }
 
 .outerbox {
-    margin-top: 3%;
+    margin-top: 2%;
     background-color:white;
     border-radius: 10px;
-    margin-bottom: 5%;
+    margin-bottom: 3%;
     padding: 3%;
+}
+
+.narrowbox {
+    margin-top: 2%;
+    background-color:white;
+    border-radius: 10px;
+    margin-bottom: 2%;
+    padding: 1%;
 }
 
 .cropped {
@@ -25,3 +33,20 @@ footer {
     height: 500px; /* height of container */
     object-fit: cover;
 }
+
+div.scrollmenu {
+    margin-top: 3%;
+    overflow: auto;
+    white-space: nowrap;
+}
+  
+div.scrollmenu a:hover {
+    background-color: #777;
+}
+
+button.category {
+   padding-inline: 100px;
+   margin-inline: 5px;
+}
+
+
