@@ -3,12 +3,12 @@ Online Shopping Application built using MongoDB, Express, Angular and Node.js
 
 # How to run the Application #
 
-## Backend ##
+### Backend ###
 - Navigate to the Backend folder from a terminal
 - Install dependencies: npm install
 - Start server: npm start
 
-## Frontend ##
+### Frontend ###
 - Navigate to the Backend folder from a terminal
 - Install dependencies: npm install
-- Start server: ng serve -o
+- Start application: ng serve -o
