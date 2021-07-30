@@ -41,7 +41,8 @@ router.post('/products', verifyToken, (req, res) => {
                 price: req.body.price,
                 discountPrice: req.body.discountPrice,
                 description: req.body.description,
-                image: req.body.image
+                image: req.body.image,
+                isTopProduct: req.body.isTopProduct
             });
             Product.create(product, (err) => {
                 if(err) { 
