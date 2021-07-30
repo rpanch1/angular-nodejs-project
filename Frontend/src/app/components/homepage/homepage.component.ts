@@ -62,4 +62,8 @@ export class HomepageComponent implements OnInit {
     }
   }
 
+  category(filter: string){
+    this._router.navigate(['/category', filter]);
+  }
+
 }

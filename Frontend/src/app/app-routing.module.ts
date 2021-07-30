@@ -23,7 +23,8 @@ import { CategoryComponent } from './components/category/category.component';
 const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'home', component: HomepageComponent},
-  {path: 'category', component: CategoryComponent},
+  {path: 'category', redirectTo: 'category/', pathMatch: 'full'}, // redirect to category with no filter param
+  {path: 'category/:filter', component: CategoryComponent},       // redirect to category with filter param
   {path: 'cart', component: CartComponent, canActivate: [AuthGuardService]},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
