@@ -10,11 +10,11 @@
 <body>
     <app-navbar></app-navbar>
     <div id='div' class="container outerbox">
-        <section class="jumbotron-heading text-center">
-            <div class="title">
-                <h2>Orders</h2>
+        <section class="jumbotron text-center">
+            <div class="container">
+              <h1 class="jumbotron-heading">Orders</h1>
             </div>
-        </section>
+          </section><br>
 
         <ul class="list-group mb-3" *ngFor='let order of orders; let i=index'>
             <div class="container items">
@@ -30,7 +30,7 @@
                 <li class="list-group-item d-flex justify-content-between">
                     <span>
                         <div>Total: <strong>{{order.total | currency}}</strong></div>
-                        <div>Order Date: <strong>{{order.orderPlacedOn}}</strong></div>
+                        <div>Order Date: <strong>{{order.orderPlacedOn | date:'long'}}</strong></div>
                         <div>Order Delivered: <strong>{{order.isDelivered}}</strong></div>
                     </span>
                 </li>

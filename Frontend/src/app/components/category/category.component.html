@@ -12,42 +12,47 @@
 
   <div class="container outerbox">
     <section class="jumbotron text-center">
-      <div class="container"><br>
+      <div class="container">
         <h1 class="jumbotron-heading">Shop by Category</h1>
       </div>
     </section><br>
 
     <div class="card">
 
-        <article class="card-group-item">
-            <header class="card-header">
-                <h6 class="title">Category</h6>
-            </header>
-            <div class="filter-content">
-                <div class="card-body">
-                    
-                    <label class="form-check">
-                    <input class="form-check-input" type="checkbox" value="women" 
-                        [(ngModel)]='category.women' (click)='women()'>
-                    <span class="form-check-label">Women's Clothes</span>
-                    </label> <!-- form-check.// -->
+      <article class="card-group-item">
+        <header class="card-header">
+          <h5 class="title">Category</h5>
+        </header>
+        <div class="filter-content">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <label class="form-check">
+                  <input class="form-check-input" type="checkbox" value="women" [(ngModel)]='category.women'
+                    (click)='women()'>
+                  <span class="form-check-label">Women's Clothes</span>
+                </label> <!-- form-check.// -->
+              </div>
+              <div class="col">
+                <label class="form-check">
+                  <input class="form-check-input" type="checkbox" value="men" [(ngModel)]='category.men'
+                    (click)='men()'>
+                  <span class="form-check-label">Men's Clothes</span>
+                </label> <!-- form-check.// -->
+              </div>
+              <div class="col">
+                <label class="form-check">
+                  <input class="form-check-input" type="checkbox" value="electronics" [(ngModel)]='category.electronics'
+                    (click)='electronics()'>
+                  <span class="form-check-label">Electronics
+                  </span>
+                </label>
+                </div>
+              </div>
 
-                    <label class="form-check">
-                    <input class="form-check-input" type="checkbox" value="men"
-                        [(ngModel)]='category.men' (click)='men()'>
-                    <span class="form-check-label">Men's Clothes</span>
-                    </label>  <!-- form-check.// -->
-
-                    <label class="form-check">
-                    <input class="form-check-input" type="checkbox" value="electronics"
-                        [(ngModel)]='category.electronics' (click)='electronics()'>
-                    <span class="form-check-label">Electronics
-                    </span>
-                    </label><br>
-                    
-                </div> <!-- card-body.// -->
-            </div>
-        </article> <!-- card-group-item.// -->
+            </div> <!-- card-body.// -->
+          </div>
+      </article> <!-- card-group-item.// -->
     </div>
 
     <div class="album py-5">
