@@ -27,6 +27,7 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { ManageProductComponent } from './components/manage-product/manage-product.component';
 import { EditProductComponent } from './components/edit-product/edit-product.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { CategoryComponent } from './components/category/category.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { FooterComponent } from './components/footer/footer.component';
     ManageProductComponent,
     EditProductComponent,
     FooterComponent,
+    CategoryComponent,
   ],
   imports: [
     BrowserModule,

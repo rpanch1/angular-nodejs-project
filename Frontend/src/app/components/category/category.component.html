@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+  <app-navbar></app-navbar>
+
+  <div class="container" style="padding-top: 3%; border-radius: 10px;">
+    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="https://media.discordapp.net/attachments/708925850690650166/870433424169631774/freestocks-_3Q3tsJ01nc-unsplash.jpg?width=1419&height=946" class="d-block w-100 cropped" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://cdn.discordapp.com/attachments/708925850690650166/870437598693298216/pexels-andrea-piacquadio-972887.jpg" class="d-block w-100 cropped" alt="...">
+        </div>
+        <div class="carousel-item">
+          <img src="https://cdn.discordapp.com/attachments/708925850690650166/870433938462613514/female-friends-out-shopping-together.jpg" class="d-block w-100 cropped" alt="...">
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="container outerbox">
+    <section class="jumbotron text-center">
+      <div class="container"><br>
+        <h1 class="jumbotron-heading">Shop 24x7</h1>
+      </div>
+    </section><br>
+
+    <div class="card">
+
+        <article class="card-group-item">
+            <header class="card-header">
+                <h6 class="title">Category</h6>
+            </header>
+            <div class="filter-content">
+                <div class="card-body">
+                    
+                    <label class="form-check">
+                    <input class="form-check-input" type="checkbox" value="women" 
+                        [(ngModel)]='category.women' (click)='women()'>
+                    <span class="form-check-label">Women's Clothes</span>
+                    </label> <!-- form-check.// -->
+
+                    <label class="form-check">
+                    <input class="form-check-input" type="checkbox" value="men"
+                        [(ngModel)]='category.men' (click)='men()'>
+                    <span class="form-check-label">Men's Clothes</span>
+                    </label>  <!-- form-check.// -->
+
+                    <label class="form-check">
+                    <input class="form-check-input" type="checkbox" value="electronics"
+                        [(ngModel)]='category.electronics' (click)='electronics()'>
+                    <span class="form-check-label">Electronics
+                    </span>
+                    </label><br>
+                    
+                </div> <!-- card-body.// -->
+            </div>
+        </article> <!-- card-group-item.// -->
+    </div>
+
+    <div class="album py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4" *ngFor='let product of filteredProducts'>
+            <div class="card mb-4 box-shadow">
+              <img class="card-img-top"
+                data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+                alt="Thumbnail [100%x225]" style="height: 325px; width: 90%; display: block;" src={{product.image}}
+                data-holder-rendered="true">
+              <div class="card-body">
+                <!-- <p class="card-text">{{product.description}}</p> -->
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item"><b>{{product.name}}</b></li>
+                  <li class="list-group-item">Price: {{product.price | currency}}</li>
+                  <li class="list-group-item">Discount Price: {{product.discountPrice | currency}}</li>
+                </ul>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button type="button" class="btn  btn-primary" (click)='productDetails(product._id)'>View
+                      Details</button>
+                  </div>
+                  <div class="btn-group">
+                    <button [disabled]='!isLoggedIn()' type="button" class="btn  btn-success"
+                      (click)='addToCart(product)'>Add to Cart</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+<app-footer></app-footer>
+
+</html>
