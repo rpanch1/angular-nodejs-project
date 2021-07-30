@@ -16,6 +16,7 @@ export class AddProductComponent implements OnInit {
     discountPrice: 0,
     description: '',
     image: '',
+    isTopProduct: ''
   }
 
   constructor(private _adminService: AdminService, private _router: Router) { }

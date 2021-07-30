@@ -1,3 +1,4 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
@@ -29,6 +30,15 @@ export class ProductDetailsComponent implements OnInit {
       this.loadingDone = true;
     }, (err) => (console.log(err)))
 
+  }
+
+  isLoggedIn(): boolean{
+    if(localStorage.getItem('token') != null){
+      return true;
+    }
+    else{
+      return false;
+    }
   }
 
 }
