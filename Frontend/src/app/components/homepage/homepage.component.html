@@ -54,11 +54,11 @@
       Shop By Category
     </h4>
     <div class="container scrollmenu">
-      <button class="btn btn-dark btn-lg category" value="all">All Categories</button>
-      <button class="btn btn-dark btn-lg category">Men's Clothing</button>
-      <button class="btn btn-dark btn-lg category">Women's Clothing</button>
+      <button class="btn btn-dark btn-lg category" (click)="category('All')">All Categories</button>
+      <button class="btn btn-dark btn-lg category" (click)="category('Men')">Men's Clothing</button>
+      <button class="btn btn-dark btn-lg category" (click)="category('Women')">Women's Clothing</button>
       <!-- <button class="btn btn-dark btn-lg category">Jewelry</button> -->
-      <button class="btn btn-dark btn-lg category">Electronics</button>
+      <button class="btn btn-dark btn-lg category" (click)="category('Electronics')">Electronics</button>
       <!-- <button class="btn btn-dark btn-lg category">Home & Kitchen</button>
       <button class="btn btn-dark btn-lg category">Toys and Games</button> -->
     </div>

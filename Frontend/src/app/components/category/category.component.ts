@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 import { ProductDetailsComponent } from '../product-details/product-details.component';
 
@@ -20,12 +20,15 @@ export class CategoryComponent implements OnInit {
     electronics: true
   }
 
-  constructor(private _userService: UserService, private _router: Router) { }
+  constructor(private _userService: UserService, private _router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
+    //this.initializeCategory(this.route.snapshot.params['filter']);
+
     this._userService.getProducts().subscribe((res) => {
       this.products = res;
-      this.filteredProducts = JSON.parse(JSON.stringify(this.products));
+      this.initializeCategory(this.route.snapshot.params['filter']);
+      //this.filteredProducts = JSON.parse(JSON.stringify(this.products));
 
     }, (err) => (console.log(err)));
 
@@ -54,6 +57,22 @@ export class CategoryComponent implements OnInit {
     else{
       return false;
     }
+  }
+
+  initializeCategory(filter: String){
+    if(filter == 'Men'){
+      this.category.women = false;
+      this.category.electronics = false;
+    }else if(filter == 'Women'){
+      this.category.men = false;
+      this.category.electronics = false;
+    }
+    else if(filter == 'Electronics'){
+      this.category.men = false;
+      this.category.women = false;
+    }
+    else{}
+    this.filterProducts();
   }
 
   women(){
