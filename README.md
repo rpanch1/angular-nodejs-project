@@ -1,5 +1,5 @@
 # About #
-Online Shopping Application built using MongoDB, Express, Angular and Node.js
+Web Application built using MongoDB, Express, Angular and Node.js where regular customers can register an account and shop online.
 
 # How to run the Application #
 
@@ -12,3 +12,4 @@ Online Shopping Application built using MongoDB, Express, Angular and Node.js
 - Navigate to the Frontend folder from a terminal
 - Install dependencies: npm install
 - Start application: ng serve -o
+- To create the first admin account register an account using email: admin@email
