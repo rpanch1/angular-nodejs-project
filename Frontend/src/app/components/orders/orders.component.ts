@@ -17,7 +17,7 @@ export class OrdersComponent implements OnInit {
 
   ngOnInit(): void {
     this._userService.getOrders().subscribe((res) => {
-      this.orders = res.orders;
+      this.orders = res.orders.reverse();
     }, (err) => console.log(err))
   }
 

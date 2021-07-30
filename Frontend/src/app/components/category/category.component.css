@@ -25,3 +25,7 @@ footer {
     height: 500px; /* height of container */
     object-fit: cover;
 }
+
+span {
+    font-weight: 600;
+}

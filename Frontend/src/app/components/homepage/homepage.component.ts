@@ -16,11 +16,6 @@ export class HomepageComponent implements OnInit {
   constructor(private _userService: UserService, private _router: Router) { }
 
   ngOnInit(): void {
-
-    //get param from url 
-    // get prod
-    // init display list using param 
-
     this._userService.getProducts().subscribe((res) => {
       this.products = res;
       this.setTopProducts(this.products);

@@ -16,9 +16,16 @@ footer {
     margin-top: 3%;
     background-color:white;
     border-radius: 10px;
+    margin-bottom: 3%;
+    padding: 3%;
+}
+
+.narrowbox {
+    margin-top: 1%;
+    background-color:white;
+    border-radius: 10px;
     margin-bottom: 5%;
     padding: 3%;
-    padding-bottom: 100px;
 }
 
 .row {
@@ -26,5 +33,5 @@ footer {
 }
 
 td .inf {
-    padding-left: 40%;
+    padding-left: 10%;
 }
